@@ -153,11 +153,19 @@ The result of random walk is very similar to the degree distribution of the grap
 
 ### (d)
 
-When n == 100, with a step size of 50
+When n = 100, with a step size of 50
 
 ![alt text](./plots/linzuo/2_1_d_3.png)
 ![alt text](./plots/linzuo/2_1_d_4.png)
 
+When n = 1000, with a step size of 50
+
+![alt text](./plots/linzuo/2_1_d_5.png)
+
+![alt text](./plots/linzuo/2_1_d_6.png)
+
+When the diamater is larger, mean and variance are more likely
+to converge faster compare with ones with lower diameters.
 
 ## Problem 2  
 ### (b)  
