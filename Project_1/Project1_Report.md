@@ -2,8 +2,8 @@
 ## Problem 3
 ### (a)
 The degree distribution of the network is as below.  
-![degree distribution](./plots/liang/1.png)
-Fit the distribution to power law and get the result exponent is 4.68233571652074. Details are as below.  
+![degree distribution](./plots/liang/1.png)  
+Fit the distribution to power law and get the result exponent is **4.68233571652074**. Details are as below.  
 $continuous  
 FALSE  
 $alpha  
@@ -18,7 +18,7 @@ $KS.p
 0.99926736466248  
 
 ### (b)
-Use fast greedy method to find the community structure. The community sizes are: 43, 45, 45, 44, 41, 42, 42, 44, 38, 42, 33, 33, 37, 33, 34, 35, 34, 34, 30, 33, 29, 29, 27, 27, 25, 23, 21, 19, 19, 19. And the modularity is 0.935616296977663.
+Use fast greedy method to find the community structure. The community sizes are: 43, 45, 45, 44, 41, 42, 42, 44, 38, 42, 33, 33, 37, 33, 34, 35, 34, 34, 30, 33, 29, 29, 27, 27, 25, 23, 21, 19, 19, 19. And the modularity is **0.935616296977663**.
 
 
 
