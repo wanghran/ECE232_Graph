@@ -12,7 +12,7 @@
 
 # Part 1
 
-##Problem 1
+## Problem 1
 ## (a)
 ![degree distribution p=0.003](./plots/wang/1_1_1.png)
 ![degree distribution p=0.004](./plots/wang/1_1_2.png)
