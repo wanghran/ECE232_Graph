@@ -100,11 +100,16 @@ The result of random walk is very similar to the degree distribution of the grap
 
 ### (d)
 
-When n == 100, with a step size of 50
+When n = 100, with a step size of 50
 
 ![alt text](./plots/linzuo/2_1_d_3.png)
 ![alt text](./plots/linzuo/2_1_d_4.png)
 
+When n = 1000, with a step size of 50
+
+![alt text](./plots/linzuo/2_1_d_5.png)
+
+![alt text](./plots/linzuo/2_1_d_6.png)
 
 ## Problem 2  
 ### (b)  
@@ -163,7 +168,7 @@ After setting the favorite page to two medians, the PageRank of these two pages 
 
 Let's consider the normal PageRank equation,
 
- Pr(A) = $\frac{(1 - d)}{N} + d\sum_{T_in} \frac{Pr(T_in)}{C(T_in)}$
+ Pr(A) = $$\frac{(1 - d)}{N} + d\sum_{T_in} \frac{Pr(T_in)}{C(T_in)}$$
 
 , where  Pr(A) is the PageRank of page  A, d is the damping factor, $N$ is the total number of pages or nodes, $T_in$ is the set of nodes which has an edge directed to $A, C(T_in)$ is the number of edges of$ T_in$.
 
