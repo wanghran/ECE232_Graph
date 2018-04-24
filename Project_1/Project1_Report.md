@@ -2,7 +2,7 @@
 ## Problem 3
 ### (a)
 The degree distribution of the network is as below.  
-![3_a](http://example.com/images/logo.png)https://github.com/wanghran/ECE232_Graph/blob/master/Project_1/plots/liang/1.png
+![degree distribution](./plots/liang/1.png)
 Fit the distribution to power law and get the result exponent is 4.68233571652074. Details are as below.  
 $continuous  
 FALSE  
@@ -31,16 +31,16 @@ Use fast greedy method to find the community structure. The community sizes are:
 
 
 ## Problem 2  
-### b  
+### (b)  
 ![alt text](https://github.com/wanghran/ECE232_Graph/blob/master/Project_1/plots/2_2_1.png)  
 ![alt text](https://github.com/wanghran/ECE232_Graph/blob/master/Project_1/plots/2_2_2.png)  
 The average distance graph seems converge around 1500 steps with the average distance about
 8 while the variance graph still fluctuates even for 2000 steps.  
-### c  
+### (c)  
 ![alt text](https://github.com/wanghran/ECE232_Graph/blob/master/Project_1/plots/2_2_3.png)  
 From this graph, it is quite clear that the degree distribution for random walk is similar to that of the original graph. 
 Since random walk is like doing random sampling from the original graph, the result is in expectation.  
-### d  
+### (d)  
 ![alt text](https://github.com/wanghran/ECE232_Graph/blob/master/Project_1/plots/2_2_4.png)  
 ![alt text](https://github.com/wanghran/ECE232_Graph/blob/master/Project_1/plots/2_2_5.png)  
 ![alt text](https://github.com/wanghran/ECE232_Graph/blob/master/Project_1/plots/2_2_6.png)  
