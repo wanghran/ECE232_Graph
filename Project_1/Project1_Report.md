@@ -242,5 +242,5 @@ Let's consider the normal PageRank equation,
 
 , where  Pr(A) is the PageRank of page  A, d is the damping factor, $N$ is the total number of pages or nodes, $T_in$ is the set of nodes which has an edge directed to $A, C(T_in)$ is the number of edges of$ T_in$.
 
-To take into account the effect of user's self-reinforcement, we can change the teleportation probability from  $\frac{1}{N} $to a number which reflects users' interest or trust on site  A.
+To take into account the effect of user's self-reinforcement, we can change the teleportation probability from $\frac{1}{N}$ to a number which reflects users' interest or trust on site  A.
 
