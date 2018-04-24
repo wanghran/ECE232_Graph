@@ -2,7 +2,56 @@
 <<<<<<< HEAD
 ##Problem 1
 =======
+## (a)
+![degree distribution p=0.003](./plots/wang/1_1_1.png)
+![degree distribution p=0.004](./plots/wang/1_1_2.png)
+![degree distribution p=0.01](./plots/wang/1_1_3.png)
+![degree distribution p=0.05](./plots/wang/1_1_4.png)
+![degree distribution p=0.1](./plots/wang/1_1_5.png)
+The distributions are binomial distributions that center at their own average degrees, which are the probability p times the number of nodes, 1000. With higher probability, the graph tends to be more likely to have vertices with more edges. Therefore, comparing to p = 0.003, the graph for p = 0.01 starts at degree approximately greater than 75, which means almost all the nodes are connected. The reason for that is the probability p is greater than the threshold, c * ln(1000)/1000, where c is an arbitrary constant. Therefore, from graph 3, the frequency of degree 0 is 0. And the spikes of every graphs are caused by the probabilities, which are greater than (np)/n, where np is greater than 1. Under this condition, the graph will be almost sure to have a GCC.  
+The theoretical value of the average degree is equal to the total number of nodes times the probability.  
 
+Mean(p=0.003) = 1000 * 0.003 = 3, which is approximate equal to the empirical mean, 3.01, with 3.33% difference.  
+Mean(p=0.004) = 1000 * 0.004 = 4, which is approximate equal to the empirical mean, 3.938, with 1.55% difference.  
+Mean(p=0.01) = 1000 * 0.01 = 10, which is approximate equal to the empirical mean, 10.13, with 1.3% difference.  
+Mean(p=0.05) = 1000 * 0.05 = 50, which is approximate equal to the empirical mean, 49.85, with 0.30% difference.  
+Mean(p=0.1) = 1000 * 0.1 = 100, which is approximate equal to the empirical mean, 99.49, with 0.51% difference.  
+As for variance, the distribution is binomial distribution, meaning the variance is np(1-p).  
+Var(p=0.003) = 1000 * 0.003 * (1 - 0.003) = 2.991, similar to the empircal value, 3.181, with 6.35% difference.  
+Var(p=0.004) = 1000 * 0.004 * (1 - 0.004) = 3.984, similar to the empircal value, 4.091, with 2.69% difference.  
+Var(p=0.01) = 1000 * 0.01 * (1 - 0.01) = 9.9, similar to the empircal value, 9.622, with 2.81% difference.  
+Var(p=0.05) = 1000 * 0.05 * (1 - 0.05) = 47.5, similar to the empircal value, 45.001, with 5.26% difference.  
+Var(p=0.1) = 1000 * 0.1 * (1 - 0.1) = 90, similar to the empircal value, 96.160, with 6.84% difference.
+
+### (b)
+For p = 0.003 and p = 0.004, the graphs are disconnected. The probability for generating a connected graph for p = 0.003 and p = 0.004 are 0, when repeat generating graphs 100 times. That for p = 0.01 is 0.92. And the probabilities for p = 0.05 and p = 0.1 are 1.  
+For p = 0.003, the diameter of the GCC is 16.
+For p = 0.004, the diameter of the GCC is 10.
+For p = 0.01, the diameter of the GCC is 5.
+For p = 0.05, the diameter of the GCC is 3.
+For p = 0.1, the diameter of the GCC is 3.
+
+### (c)
+![normalized GCC vs. p](./plots/wang/1_1_6.png)
+We set the p from 0.1 times (ln(1000)/1000), which is 0.0006, to 2 times (ln(1000)/1000), which is 0.0138, with a step size of 0.05 times (ln(1000)/1000), which is 0.0003. We plot the normalized average GCC size of 100 repititions versus the probability p.  
+From the graph, we could empirically estimate that giant connected component starts to emerge at around 0.0066. Theoretical value is 0.0069 so the estimation matches with it. The criterion of emergence is that the curve starts to become flat, meaning the derivative gradually approach to 0. When the curve becomes completely flat, it reaches steady state, meaning the graph is connected. 
+
+### (d)
+#### (i)
+![GCC size vs. p, c=0.5](./plots/wang/1_1_7.png)
+![GCC size vs. n, c=0.5](./plots/wang/1_1_8.png)
+With higher edge formation probability, the size of GCC decreases. Though this looks counter-intuitive at the first glance, this actually makes sense. For all the graph sitting at the left end of x axis, they all have large numbers of nodes. Therefore, the GCC size respective its own size are much smaller comparing to the graph sitting at the right end of the graph, whose size is much smaller. And since p=c/n, for a fixed c, the smaller the number of nodes is, the higher the probability of edges forming.   
+From the second graph, we can see the sizes of majority GCC are ranging from 10 to 20. Although increasing number of nodes does raise the size of GCC at the beginning, it does not affect a lot in the late phase. 
+
+#### (ii)
+![GCC size vs. p, c=1](./plots/wang/1_1_9.png)
+![GCC size vs. n, c=1](./plots/wang/1_1_10.png)
+For the graph with GCC size vs. probability, the trend is the similar to the previous one. However, the maximum size of GCC is way higher than that of c = 0.5. The second graph is different from the previous one. With number of nodes increases, the GCC size actually increases, rather than keeping in a certain range. And the dots are more spreaded out. This might imply that the connected components in the graphs are more than those in the graph with c = 0.5, leading to larger GCC. 
+
+#### (iii)
+![GCC size vs. p, c=1.1, 1.2, 1.3](./plots/wang/1_1_11.png)
+![GCC size vs. n, c=1.1, 1.2, 1.3](./plots/wang/1_1_12.png)
+The first graph still looks similar to the previous ones, except the size is much larger. However, the second graph is much different. For c=1.1, the dots look similar to that of c=1.0, with larger size of GCC. They are still quite spreaded out with higher number of nodes. The interesting part is that for c=1.1 and c=1.2, the dots are much more confined. That might imply that the graphs are connected. 
 ## Problem 2
 ### (a) 
 By definition of preferential attachment model, the graph will always be connected since a node always choose a node  ii  with  degree(i)degree(i)  >= 1 and construct an edge with it. Therefore, the newly inserted node will always be connected with the graph.
