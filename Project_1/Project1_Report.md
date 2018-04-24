@@ -111,6 +111,9 @@ When n = 1000, with a step size of 50
 
 ![alt text](./plots/linzuo/2_1_d_6.png)
 
+When the diamater is larger, mean and variance are more likely
+to converge faster compare with ones with lower diameters.
+
 ## Problem 2  
 ### (b)  
 ![alt text](https://github.com/wanghran/ECE232_Graph/blob/master/Project_1/plots/2_2_1.png)  
