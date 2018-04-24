@@ -1,5 +1,70 @@
 # Part 1
+<<<<<<< HEAD
 ##Problem 1
+=======
+
+## Problem 2
+### (a) 
+By definition of preferential attachment model, the graph will always be connected since a node always choose a node  ii  with  degree(i)degree(i)  >= 1 and construct an edge with it. Therefore, the newly inserted node will always be connected with the graph.
+
+![alt text](./plots/linzuo/1_2_a_1.png)
+### (b)
+Modualrity is 0.9327325
+
+### (c)
+Modularity is 0.9759, It did not change dramatically since the overall graph strucutre is determined by the same generative model. The modularity increased since later generated nodes are less likely to be connected.
+ 
+### (d)
+
+![alt text](./plots/linzuo/1_2_d_1.png)
+![alt text](./plots/linzuo/1_2_d_2.png)
+
+Slope is rooughly 0.025
+
+### (e)
+
+![alt text](./plots/linzuo/1_2_e_1.png)
+
+The degree distribution of the subgraph is very similar to its parent graph. Since the subgraph is randomly sampled and the empirical distribution should be similar to its parent graph.
+
+### (f)
+
+We can tell from the graph that the number of degress is closely related to the age of nodes. This is one of the most important chracteristics of preferential attachment model. There is a spike at ages = 1000, showing that the generative model strickly favors starting nodes. 
+
+![alt text](./plots/linzuo/1_2_f_1.png)
+
+### (g) 
+### m=2
+
+The modularity is 0.52540327767565 with n= 1000, m=2
+The modularity is 0.52853133625893 with n= 10000, m=2
+
+Modularity increases as the number of selected node per iteration increases. 
+Since modularity represents the strenths of dividing network into submodules, larger m will always result in a more densly connected graph. So the modularity of m=1 is high.
+
+![alt text](./plots/linzuo/1_2_g_1.png)
+![alt text](./plots/linzuo/1_2_g_2.png)
+![alt text](./plots/linzuo/1_2_g_3.png)
+![alt text](./plots/linzuo/1_2_g_4.png)
+
+#### m = 5
+
+![alt text](./plots/linzuo/1_2_g_5.png)
+![alt text](./plots/linzuo/1_2_g_6.png)
+![alt text](./plots/linzuo/1_2_g_7.png)
+![alt text](./plots/linzuo/1_2_g_8.png)
+
+### (h)
+
+Both procedures will be able to generate PA models. However, the stub matching models do
+not generate edges during the construction process. Instead, it randomly matches with 
+other nodes regardless of current degree
+
+![alt text](./plots/linzuo/1_2_h_1.png)
+![alt text](./plots/linzuo/1_2_h_2.png)
+
+
+>>>>>>> 0091231f2bb92b70488ed7ac3402fd850637b111
 ## Problem 3
 ### (a)
 The degree distribution of the network is as below.  
@@ -19,10 +84,30 @@ Use fast greedy method to find the community structure. The community sizes are:
 
 
 
-
-
 # Part 2  
 ## Problem 1  
+
+### (b)
+
+We calcualted the mean and variance using a 50 step randome and 10 repeatitions per step size for variance and mean. The relationship is shown below. It seems to converge as the t grows
+
+![alt text](./plots/linzuo/2_1_b_1.png)
+![alt text](./plots/linzuo/2_1_b_2.png)
+
+### (c) 
+
+The result of random walk is very similar to the degree distribution of the graph. Since random walk depends on the structure of the orginal graph and thus has similar degree distribution
+
+
+![alt text](./plots/linzuo/2_1_c_1.png)
+![alt text](./plots/linzuo/2_1_c_2.png)
+
+### (d)
+
+When n == 100, with a step size of 50
+
+![alt text](./plots/linzuo/2_1_d_3.png)
+![alt text](./plots/linzuo/2_1_d_4.png)
 
 
 ## Problem 2  
@@ -63,3 +148,28 @@ Perform random walk with a teleportation probability of 0.15. The result visit p
 ![degree distribution](./plots/liang/5.png)  
 ![degree distribution](./plots/liang/6.png)  
 ![degree distribution](./plots/liang/7.png)  
+
+
+## Problem 4
+
+### (a)
+When using teleportation based on PageRank, random jump will favor nodes with high PageRank values. Different from the result in 3b, which uses random jump with uniform distribution over all pages, the result in this problem is more likely to land onto vertices with high page rank values, like the first few nodes.The distribution becomes more concentrated in this case due to the random jump probability being affected by initial PageRank obtained from 3b  
+
+![alt text](./plots/linzuo/2_4_a_1.png)
+![alt text](./plots/linzuo/2_4_a_2.png)
+
+Correlation between in-degree and PageRank is 0.3630926 
+
+### (b)
+After setting the favorite page to two medians, the PageRank of these two pages greatly increased. Other pages PageRank decreased significantly due to the biased random jump probability.
+
+### (c)
+
+Let's consider the normal PageRank equation,
+
+ $$ Pr(A) = \frac{(1 - d)}{N} + d\sum_{T_in} \frac{Pr(T_in)}{C(T_in)}$$
+
+, where  Pr(A) is the PageRank of page  A, d is the damping factor, $N$ is the total number of pages or nodes, $T_in$ is the set of nodes which has an edge directed to $A, C(T_in)$ is the number of edges of$ T_in$.
+
+To take into account the effect of user's self-reinforcement, we can change the teleportation probability from  $\frac{1}{N} $to a number which reflects users' interest or trust on site  A.
+
