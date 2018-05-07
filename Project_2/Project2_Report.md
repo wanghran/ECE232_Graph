@@ -16,12 +16,25 @@
 
 ### Question 1
 
+Yes, the facebook network is connected.
+
 ### Question 2
+
+The diameter of the network is 8.
 
 ### Question 3
 
+The degree distribution is as follow. The average degree distribution is 43.69101.
+
+![degree distribution p=0.003](./plots/liang/3-1.png)
+
 ### Question 4
 
+The degree distribution and the fit line in a log-log scale is as follow.
+
+![degree distribution p=0.003](./plots/liang/4-1.png)
+
+The estimated slope of the fit line is $$ -1 \times 10^{-4}$$.
 
 ## 1.2
 
@@ -30,6 +43,7 @@
 Number of nodes: 348
 
 Number of edges: 2866
+
 ![degree distribution p=0.003](./plots/linzuo/5-1.png)
 
 ### Question 6
@@ -37,17 +51,88 @@ Number of edges: 2866
 Diameter of the graph is: 2
 
 In a personalized network, the trivial lower bound is 1, all neighbors are connected (fully connected graph). The trivial upper bound is 2, at least two neighbors of the core node is not connected. So the path between these two nodes will contain the core node, resulting a path of length 2.
+
 ### Question 7
 
-** Upper bound = 2 : **  The person has at least two friends that do not know each other.
+**Upper bound = 2 :**  The person has at least two friends that do not know each other.
 
-** Lower bound = 1 : **   The person's friends all know each other.
+**Lower bound = 1 :**   The person's friends all know each other.
 
 ## 1.3
 
 ### Question 8
 
+There are 40 core nodes in the Facebook network. The average degree of them is 279.375.
+
 ### Question 9
+
+Community structure analysis using different community detection algorithms.
+
+* ##### Node ID 1
+
+  **Fast-Greedy modularity: ** 0.4131014 
+
+![degree distribution p=0.003](./plots/liang/9-1.png)
+
+  **Edge-Betweenness modularity: ** 0.3533022
+
+![degree distribution p=0.003](./plots/liang/9-2.png)
+
+  **Infomap modularity:** 0.3891185
+
+![degree distribution p=0.003](./plots/liang/9-3.png)
+
+* ##### Node ID 108
+  **Fast-Greedy Modularity:** 0.4359294
+
+![degree distribution p=0.003](./plots/liang/9-4.png)
+
+  **Edge-Betweenness:** 0.5067549
+
+![degree distribution p=0.003](./plots/liang/9-5.png)
+
+  **Infomap modularity:** 0.5082492
+
+![degree distribution p=0.003](./plots/liang/9-6.png)
+
+* ##### Node ID 349
+  **Fast-Greedy Modularity:** 0.2517149
+
+![degree distribution p=0.003](./plots/liang/9-7.png)
+
+  **Edge-Betweenness:** 0.133528
+
+![degree distribution p=0.003](./plots/liang/9-8.png)
+
+  **Infomap modularity:** 0.203753
+
+![degree distribution p=0.003](./plots/liang/9-9.png)
+
+* ##### Node ID 484
+  **Fast-Greedy Modularity:** 0.5070016
+
+![degree distribution p=0.003](./plots/liang/9-10.png)
+
+  **Edge-Betweenness:** 0.4890952
+
+![degree distribution p=0.003](./plots/liang/9-11.png)
+
+  **Infomap modularity:** 0.5152788
+
+![degree distribution p=0.003](./plots/liang/9-12.png)
+
+* ##### Node ID 1087
+  **Fast-Greedy Modularity:** 0.1455315
+
+![degree distribution p=0.003](./plots/liang/9-13.png)
+
+  **Edge-Betweenness:** 0.02762377
+
+![degree distribution p=0.003](./plots/liang/9-14.png)
+
+  **Infomap modularity:** 0.02690662
+
+![degree distribution p=0.003](./plots/liang/9-15.png)
 
 ### Question 10
 
@@ -109,8 +194,17 @@ Dispersion measures the distances between pairs of nodes without the core node a
 
 ### Question 16
 
+The $$ |N_{r}|$$ is 11.
+
 ### Question 17
 
+The average accuracy of the three recommendation algorithm:
+
+* Common Neighbors measure: 0.3927227
+* Jaccard measure: 0.1457471
+* Adamic Adar measure: 0.1773167
+
+So according to my experiment results, the Common Neighbors measure is the best.
 
 # 2. Google+ network
 
