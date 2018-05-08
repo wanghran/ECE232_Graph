@@ -323,4 +323,15 @@ Modularity: 0.1638597
 
 ### Question 21
 
+higher homogeneity indicates the circles in the community are of the same type; higher completeness indicates the community comprise many different types of circles
+
 ### Question 22
+h1 is around 0.21,c1 is around 0.33;
+h2 is around 0.48,c2 is around -3.53;
+h3 is around 0.006,c3 is around -1.55;
+H(C) indicates the chaos of circle system of the network, if the network has more numbers of circles, H(C)or say the chaos is higher;
+H(k) indicates the chaos of community system of the network, if the network has more numbers of communities, H(K)or say the chaos is higher;
+H(C|K)indicate how the circles are distributed in different communities.If more people with same circle information are in the same community, H(C|K) is lower;
+H(K|C)indicate how the communities are distributed in different circles.If more people with same community information are in the same circle, H(C|K) is lower.
+
+
