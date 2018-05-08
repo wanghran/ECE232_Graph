@@ -58,7 +58,7 @@ In a personalized network, the trivial lower bound is 1, all neighbors are conne
 
 **Lower bound = 1 :**   The person's friends all know each other.
 
-## 1.3
+## 1.3.1
 
 ### Question 8
 
@@ -134,6 +134,8 @@ Community structure analysis using different community detection algorithms.
 
 ![degree distribution p=0.003](./plots/liang/9-15.png)
 
+## 1.3.2
+
 ### Question 10
 
 Community structure analysis after removing the core node.
@@ -207,6 +209,9 @@ that connected the community through the core nodes are now dropped. Thus, every
   **Infomap modularity:** 0.02737159
 
 ![degree distribution p=0.003](./plots/Haoran/Q10_15.png)
+
+## 1.3.3
+
 ### Question 11
 
 Given node i, the embeddedness of node i is equal to $Deg(i) - 1$. Because core node neighbors are all in the network. The neighbors of a node - 1 is the number of friends of node i except the core node.
@@ -243,6 +248,7 @@ Maximum dispersion of core:1 is ID: 1889
 ![degree distribution p=0.003](./plots/linzuo/13-3.png)
 
 Maximum dispersion of core:1 is ID: 377
+
 ![degree distribution p=0.003](./plots/linzuo/13-4.png)
 
 Maximum dispersion of core:1 is ID: 108
@@ -303,7 +309,7 @@ Dispersion measures the distances between pairs of nodes without the core node a
 
 ### Question 16
 
-The $$ |N_{r}|$$ is 11.
+The $|N_{r}|$ is 11.
 
 ### Question 17
 
@@ -340,6 +346,8 @@ All those distributions show similar trends. For the outward degree distribution
 ![degree distribution](./plots/Haoran/Q19_5.png)
 ![degree distribution](./plots/Haoran/Q19_6.png)
 
+## 2.1
+
 ### Question 20
 
 The modularities of those three are different. The last one is more connected than the previous two and those two are similar, with similarity 0.184.
@@ -364,10 +372,10 @@ Modularity: 0.1638597
 higher homogeneity indicates the circles in the community are of the same type; higher completeness indicates the community comprise many different types of circles
 
 ### Question 22
-h1 is around 0.21,c1 is around 0.33;
-h2 is around 0.48,c2 is around -3.53;
-h3 is around 0.006,c3 is around -1.55;
-H(C) indicates the chaos of circle system of the network, if the network has more numbers of circles, H(C)or say the chaos is higher;
-H(k) indicates the chaos of community system of the network, if the network has more numbers of communities, H(K)or say the chaos is higher;
-H(C|K)indicate how the circles are distributed in different communities.If more people with same circle information are in the same community, H(C|K) is lower;
-H(K|C)indicate how the communities are distributed in different circles.If more people with same community information are in the same circle, H(C|K) is lower.
+$h1$ is around 0.21, $c1$ is around 0.33.  
+$h2$ is around 0.48, $c2$ is around -3.53.  
+$h3$ is around 0.006, $c3$ is around -1.55.  
+$H(C)$ indicates the chaos of circle system of the network. If the network has more numbers of circles, $H(C)$ or say the chaos is higher;
+$H(k)$ indicates the chaos of community system of the network. If the network has more numbers of communities, $H(K)$ or say the chaos is higher.  
+$H(C|K)$ indicate how the circles are distributed in different communities. If more people with same circle information are in the same community, $H(C|K)$ is lower.  
+$H(K|C)$ indicate how the communities are distributed in different circles. If more people with same community information are in the same circle, $H(C|K)$ is lower.
