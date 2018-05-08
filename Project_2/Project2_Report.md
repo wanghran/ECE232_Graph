@@ -233,20 +233,58 @@ The general trend is that, dispersion will increase as the number of embeddednes
 We applied Fast-Greedy algorithms to find Community structure which is shown in below plots, represented by different colors. The node with maximum dispersion is highlighted with red incident edges. Core node is also enlarged for clarity. We try to change the node color to show our core node and maximum dispersion node. However, it seems that the community color seems to be overwriting our color settings for these two individual nodes. We cannot find a work around but this should not affect the graph in general.
 
 ![degree distribution p=0.003](./plots/linzuo/13-1.png)
+
+Maximum dispersion of core:1 is ID: 57
+
 ![degree distribution p=0.003](./plots/linzuo/13-2.png)
+
+Maximum dispersion of core:1 is ID: 1889
+
 ![degree distribution p=0.003](./plots/linzuo/13-3.png)
+
+Maximum dispersion of core:1 is ID: 377
 ![degree distribution p=0.003](./plots/linzuo/13-4.png)
+
+Maximum dispersion of core:1 is ID: 108
+
 ![degree distribution p=0.003](./plots/linzuo/13-5.png)
+
+Maximum dispersion of core:1 is ID: 108
+
 
 ### Question 14
 
 We highlighted our core node with white color. Personal network along with nodes with maximum embeddedness and dispersion/embeddedness ratio are shown in the below graph. Maximum dispersion is highlighted in red and maximum d/e ratio is highlighted in green. If the nodes share the same ID, it is highlighted with purple in this graph.
 
 ![degree distribution p=0.003](./plots/linzuo/14-1.png)
+
+Maximum embeddedness of core:1 is ID: 57
+
+Maximum dispersion/embeddedness ratio of core:1 is ID: 26
+
 ![degree distribution p=0.003](./plots/linzuo/14-2.png)
+
+Maximum embeddedness of core:1 is ID: 1889
+
+Maximum dispersion/embeddedness ratio of core:1 is ID: 1889
+
 ![degree distribution p=0.003](./plots/linzuo/14-3.png)
+
+Maximum embeddedness of core:1 is ID: 377
+
+Maximum dispersion/embeddedness ratio of core:1 is ID: 377
+
 ![degree distribution p=0.003](./plots/linzuo/14-4.png)
+
+Maximum embeddedness of core:1 is ID: 108
+
+Maximum dispersion/embeddedness ratio of core:1 is ID: 108
+
 ![degree distribution p=0.003](./plots/linzuo/14-5.png)
+
+Maximum embeddedness of core:1 is ID: 108
+
+Maximum dispersion/embeddedness ratio of core:1 is ID: 108
 
 ### Question 15
 
@@ -333,5 +371,3 @@ H(C) indicates the chaos of circle system of the network, if the network has mor
 H(k) indicates the chaos of community system of the network, if the network has more numbers of communities, H(K)or say the chaos is higher;
 H(C|K)indicate how the circles are distributed in different communities.If more people with same circle information are in the same community, H(C|K) is lower;
 H(K|C)indicate how the communities are distributed in different circles.If more people with same community information are in the same circle, H(C|K) is lower.
-
-
