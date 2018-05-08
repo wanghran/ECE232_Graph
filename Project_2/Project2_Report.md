@@ -70,7 +70,7 @@ Community structure analysis using different community detection algorithms.
 
 * ##### Node ID 1
 
-  **Fast-Greedy modularity: ** 0.4131014 
+  **Fast-Greedy modularity: ** 0.4131014
 
 ![degree distribution p=0.003](./plots/liang/9-1.png)
 
@@ -140,11 +140,11 @@ Community structure analysis after removing the core node.
 
 Comparing to the the original networks, the new networks have higher
 modularity. The reason is that after removing the core nodes, the edges
-that connected the community through the core nodes are now dropped. Thus, every parts of the networks are more seperated, meaning higher modularities. 
+that connected the community through the core nodes are now dropped. Thus, every parts of the networks are more seperated, meaning higher modularities.
 
 * ##### Node ID 1
 
-  **Fast-Greedy modularity: ** 0.4418533 
+  **Fast-Greedy modularity: ** 0.4418533
 
 ![degree distribution p=0.003](./plots/Haoran/Q10_1.png)
 
@@ -226,7 +226,7 @@ During our calculation, we found that certain nodes are not connected to each ot
 ![degree distribution p=0.003](./plots/linzuo/12-9.png)
 ![degree distribution p=0.003](./plots/linzuo/12-10.png)
 
-The general trend is that, dispersion will increase as the number of embeddedness increases.
+The general trend is that, dispersion will increase as the number of embeddedness increases. Most of nodes tend to have few embeddedness and dispersion.  
 
 ### Question 13
 
@@ -281,11 +281,11 @@ So according to my experiment results, the Common Neighbors measure is the best.
 
 ### Question 18
 
-The number of personal networks are 57. 
+The number of personal networks are 57.
 
 ### Question 19
 
-All those distributions show similar trends. For the outward degree distributions, all the three show that there are almost no nodes with high outward degree, for example with degree higher than 200. However, the first two have more nodes with outward degree less than 50 than that of the last one. For the inward degree distribution, the curves have the similar shapes and the only difference is the number of nodes of each graphs. The last one has more nodes than the previous two graphs. 
+All those distributions show similar trends. For the outward degree distributions, all the three show that there are almost no nodes with high outward degree, for example with degree higher than 200. However, the first two have more nodes with outward degree less than 50 than that of the last one. For the inward degree distribution, the curves have the similar shapes and the only difference is the number of nodes of each graphs. The last one has more nodes than the previous two graphs.
 
 * ##### Node ID: 109327480479767108490
 
