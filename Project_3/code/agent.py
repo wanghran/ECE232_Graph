@@ -4,6 +4,8 @@ the actually value in the grid. Four actions associate with the agent: move
 up, move down, move left, and move right.
 """
 
+import numpy as np
+
 
 class agent:
     def __init__(self, x, y):
@@ -62,3 +64,27 @@ class agent:
         self._position = self._x * 10 + self._y
         if (self._position > 99.0):
             raise ValueError("Cannot move left, over boundary")
+
+    def neighbor(self):
+        Up = (self._y - 1) if((self._y - 1) > 0.0) else (-1)
+        Down = (self._y + 1) if((self._y + 1) < 9.0) else (-1)
+        Left = (self._x - 1) if((self._x - 1) > 0.0) else (-1)
+        Right = (self._x + 1) if((self._x + 1) < 9.0) else (-1)
+        form = []
+        if (Up != -1):
+            form.append([self._x, Up])
+        if (Down != -1):
+            form.append([self._x, Down])
+        if (Left != -1):
+            form.append([Left, self._y])
+        if (Right != -1):
+            form.append([Right, self._y])
+        return np.array(form)
+
+    def isNeighbor(self, x, y):
+        neighborList = self.neighbor()
+        for row in neighborList:
+            if (row[0] == x and row[1] == y):
+                return True
+        return False
+
