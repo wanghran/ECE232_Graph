@@ -30,7 +30,6 @@ class Environment:
         for a in self.actions:
             dx, dy = self.get_diretion(a)
             if self.is_out(x+dx, y+dy):
-                print(a + 'out')
                 states[4] += states[self.actions[a]]
                 states[self.actions[a]] = 0
 
