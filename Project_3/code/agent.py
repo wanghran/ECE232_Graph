@@ -41,6 +41,16 @@ class agent:
         if (self._position > 99.0 or self._position < 0.0):
             raise ValueError("Position should be between 0.0 to 99.0")
 
+    @property
+    def position(self):
+        self._position = self._x * 10 + self._y
+        return self._position
+
+    """
+    TODO: agent could be able to move out of the grid with certain
+    probability
+    """
+
     def moveUp(self):
         self._y -= 1
         self._position = self._x * 10 + self._y
@@ -88,3 +98,9 @@ class agent:
                 return True
         return False
 
+    def atCorner(self):
+        return (True) if(self._position == 0 or
+                         self._position == 9 or
+                         self._position == 90 or
+                         self._position == 99)
+        (False)
