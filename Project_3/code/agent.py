@@ -97,10 +97,3 @@ class agent:
             if (row[0] == x and row[1] == y):
                 return True
         return False
-
-    def atCorner(self):
-        return (True) if(self._position == 0 or
-                         self._position == 9 or
-                         self._position == 90 or
-                         self._position == 99)
-        (False)
