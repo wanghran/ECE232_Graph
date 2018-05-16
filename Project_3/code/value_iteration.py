@@ -46,10 +46,8 @@ def main():
 
     # draw heat map
     V_tmp = np.zeros((size, size))
-
     for s in S:
         V_tmp[s % 10, s / 10] = V[s]
-    print(V_tmp)
     heat_map.heat_map(V_tmp, 'Heat Map of State Value')
 
 
