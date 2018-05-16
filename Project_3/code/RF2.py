@@ -1,5 +1,5 @@
 """
-Reward Function 1
+Reward Function 2
 """
 
 import numpy as np
