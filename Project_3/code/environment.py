@@ -14,30 +14,31 @@ class Environment:
 
     def get_diretion(self, action):
         if action == 'up':
-            return 0,-1
-        if action == 'down':
-            return 0,1
-        if action == 'left':
             return -1,0
+        if action == 'down':
+            return 1,0
+        if action == 'left':
+            return 0,-1
         if action == 'right':
             return 0,1
 
     def get_next_state_prob(self, x, y, action):
         omega = float(self.w/4)
-        states = [omega,omegagiit omega,omega,0]
+        states = [omega,omega, omega,omega,0]
         states[self.actions[action]] += 1 - self.w
         res = {}
         for a in self.actions:
             dx, dy = self.get_diretion(a)
             if self.is_out(x+dx, y+dy):
+                print(a + 'out')
                 states[4] += states[self.actions[a]]
                 states[self.actions[a]] = 0
 
         for a in self.actions:
             dx, dy = self.get_diretion(a)
-            key = (x+dx) + (y+dy)*10
-            value = states[self.actions[a]]
-            res[key] = value
+            if not self.is_out(x+dx, y+dy):
+                key = (x+dx) + (y+dy)*10
+                value = states[self.actions[a]]
+                res[key] = value
         res[x+y*10] = states[4]
         return res
-
