@@ -9,10 +9,13 @@ EPSILON = 0.01
 
 
 def value_iteration(env, reward, S, A, gamma):
+    # Initialization
     V = np.zeros(len(S))
     V_tmp = np.zeros(len(S))
+    PI = ['null'] * len(S)
     delta = 10000  # large number
 
+    # Estimation
     while delta > EPSILON:
         delta = 0
         for s in S:
@@ -24,18 +27,26 @@ def value_iteration(env, reward, S, A, gamma):
                 summation = 0
                 for s_prime, possibility in P.items():
                     summation += possibility * (reward[s % 10, s / 10] + gamma * V[s_prime])
-                if summation > maximum:
-                    maximum = summation
-                    a_optimal = a
+                maximum = max(maximum, summation)
             V_tmp[s] = maximum
             delta = max(delta, abs(v - V_tmp[s]))
         for s in S:
             V[s] = V_tmp[s]
 
-    # for s in S:
-    #     pi[s] = find the max index
+    # Computation
+    for s in S:
+        maximum = 0
+        for a in A:
+            P = env.get_next_state_prob(s % 10, s / 10, a)
+            summation = 0
+            for s_prime, possibility in P.items():
+                summation += possibility * (reward[s % 10, s / 10] + gamma * V[s_prime])
+            if summation > maximum:
+                a_optimal = a
+                maximum = summation
+        PI[s] = a_optimal
 
-    return V
+    return V, PI
 
 
 def main():
@@ -48,8 +59,9 @@ def main():
     env = environment.Environment(w, size)
     S = range(size * size)
 
-    V_optimal = value_iteration(env, reward, S, A, gamma)
+    V_optimal, PI_optimal = value_iteration(env, reward, S, A, gamma)
 
+    print(PI_optimal)
     V_mesh = np.zeros((size, size))
     for s in S:
         V_mesh[s % 10, s / 10] = V_optimal[s]
