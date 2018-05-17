@@ -70,7 +70,6 @@ def main():
     # draw heat_map
     heat_map.heat_map(V_mesh, 'Q3')
 
-
     arrows = {'left': u'\u2190', 'up': u'\u2191', 'right': u'\u2192', 'down': u'\u2193' }
     pi_temp = [['' for x in range(size)] for y in range(size)] 
 
