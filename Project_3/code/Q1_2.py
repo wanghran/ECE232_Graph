@@ -22,7 +22,7 @@ z[7, 7] = -100.0
 z[7, 6] = -100.0
 z[8, 6] = -100.0
 fig, ax = plt.subplots()
-map = ax.pcolor(X, Y, z, cmap='RdBu', vmax=z.max(), vmin=z.min())
+map = ax.pcolor(X, Y, z, cmap='seismic', vmax=z.max(), vmin=z.min())
 ax.invert_yaxis()
 ax.xaxis.tick_top()
 fig.subplots_adjust(right=0.8)

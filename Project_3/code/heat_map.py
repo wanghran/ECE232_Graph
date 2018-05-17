@@ -12,7 +12,7 @@ def heat_map(value, name):
         for j in range(s[1]):
             z[i, j] = value[i, j]
     fig, ax = plt.subplots()
-    map = ax.pcolor(X, Y, z, cmap='RdBu', vmax=z.max(), vmin=z.min())
+    map = ax.pcolor(X, Y, z, cmap='seismic', vmax=z.max(), vmin=z.min())
     ax.invert_yaxis()
     ax.xaxis.tick_top()
     fig.subplots_adjust(right=0.8)

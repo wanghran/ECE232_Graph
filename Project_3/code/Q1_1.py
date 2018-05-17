@@ -7,7 +7,7 @@ X, Y = np.meshgrid(x, y)
 z = np.zeros([11, 11])
 z[9, 9] = 1.0
 fig, ax = plt.subplots()
-map = ax.pcolor(X, Y, z, cmap='RdBu', vmax=z.max(), vmin=z.min())
+map = ax.pcolor(X, Y, z, cmap='seismic', vmax=z.max(), vmin=z.min())
 ax.invert_yaxis()
 ax.xaxis.tick_top()
 fig.subplots_adjust(right=0.8)
