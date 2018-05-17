@@ -11,20 +11,19 @@ class Environment:
             return True
         return False
 
-
     def get_diretion(self, action):
         if action == 'up':
-            return -1,0
+            return -1, 0
         if action == 'down':
-            return 1,0
+            return 1, 0
         if action == 'left':
-            return 0,-1
+            return 0, -1
         if action == 'right':
-            return 0,1
+            return 0, 1
 
     def get_next_state_prob(self, x, y, action):
         omega = float(self.w/4)
-        states = [omega,omega, omega,omega,0]
+        states = [omega, omega, omega, omega, 0]
         states[self.actions[action]] += 1 - self.w
         res = {}
         for a in self.actions:

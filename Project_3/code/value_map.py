@@ -17,4 +17,6 @@ def value_map(value, name):
     ax.axis('tight')
     fig.patch.set_visible(False)
     ax.set_title(name, y=1.0)
+    table.set_fontsize(14)
+    table.scale(1.5, 1.5)
     plt.show()
