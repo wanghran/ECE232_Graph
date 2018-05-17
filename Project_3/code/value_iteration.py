@@ -54,14 +54,13 @@ def main():
     A = ['up', 'down', 'left', 'right']
     w = 0.1
     gamma = 0.8
-    reward = RF2.RF2().reward
+    reward = RF1.RF1().reward
 
     env = environment.Environment(w, size)
     S = range(size * size)
 
     V_optimal, PI_optimal = value_iteration(env, reward, S, A, gamma)
 
-    print(PI_optimal)
     V_mesh = np.zeros((size, size))
     for s in S:
         V_mesh[s % 10, s / 10] = V_optimal[s]
@@ -70,6 +69,19 @@ def main():
     value_map.value_map(V_mesh, 'Q2')
     # draw heat_map
     heat_map.heat_map(V_mesh, 'Q3')
+
+
+    arrows = {'left': u'\u2190', 'up': u'\u2191', 'right': u'\u2192', 'down': u'\u2193' }
+    pi_temp = [['' for x in range(size)] for y in range(size)] 
+
+    for s in S:
+        pi_temp[s % 10][s / 10] = arrows[PI_optimal[s]].encode("utf-8")
+
+    for line in pi_temp:
+        for arrow in line:
+            print arrow,
+            print '   ',
+        print('\n')
 
 
 if __name__ == '__main__':
