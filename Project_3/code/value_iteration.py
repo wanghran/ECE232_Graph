@@ -78,8 +78,8 @@ def main():
 
     for line in pi_temp:
         for arrow in line:
-            print arrow,
-            print '   ',
+            print(arrow),
+            print('   '),
         print('\n')
 
 
