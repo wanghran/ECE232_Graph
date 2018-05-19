@@ -10,7 +10,8 @@ class Environment:
         self.gamma = gamma
         self.R = R
         self.actions = actions
-        self.P = self.find_p(size)
+        self.P = self.find_p()
+        self.S = range(10 * 10)
 
     def is_out(self, x, y):
         if x < 0 or x >= 10:
@@ -29,7 +30,8 @@ class Environment:
         if action == 'right':
             return 0, 1
 
-    def find_p(self,size):
+    def find_p(self):
+        size = self.size
         res = np.zeros((4,size, size))
         count =0
         for action in self.actions.keys():
@@ -67,16 +69,17 @@ class Environment:
     def get_p(self):
         return self.P
 
-    def plot_policy(self, policy_map):
-        S = range(10 * 10)
-        arrows = {'left': u'\u2190', 'up': u'\u2191', 'right': u'\u2192', 'down': u'\u2193' }
-        pi_temp = [['' for x in range(10)] for y in range(10)] 
+def plot_policy(policy_map):
+    S = range(10 * 10)
+    arrows = {'left': u'\u2190', 'up': u'\u2191', 'right': u'\u2192', 'down': u'\u2193' }
+    pi_temp = [['' for x in range(10)] for y in range(10)] 
 
-        for s in S:
-            pi_temp[s % 10][s / 10] = arrows[policy_map[s]].encode("utf-8")
+    for s in S:
+        pi_temp[s % 10][s / 10] = arrows[policy_map[s]].encode("utf-8")
 
-        for line in pi_temp:
-            for arrow in line:
-                print(arrow),
-                print('   '),
-            print('\n')
+    for line in pi_temp:
+        for arrow in line:
+            print(arrow),
+            print('   '),
+        print('\n')
+    return None
