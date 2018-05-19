@@ -6,6 +6,9 @@ Notes
 Week3_Discussion.ipynb
 gplus
 .vscode
+.idea
+__pycache__
+*.pyc
 
 Project_3/\.idea/
 
