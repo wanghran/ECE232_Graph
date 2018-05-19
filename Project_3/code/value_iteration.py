@@ -54,7 +54,7 @@ def main():
     A = ['up', 'down', 'left', 'right']
     w = 0.1
     gamma = 0.8
-    reward = RF1.RF1().reward
+    reward = RF2.RF2().reward
 
     env = environment.Environment(w, size)
     S = range(size * size)
