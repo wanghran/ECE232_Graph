@@ -67,5 +67,16 @@ class Environment:
     def get_p(self):
         return self.P
 
-e = Environment(100, {'up': 0, 'down': 1, 'left': 2, 'right': 3},0.4,0.8,RF1.RF1().reward)
-print(e.get_p().shape)
+    def plot_policy(self, policy_map):
+        S = range(10 * 10)
+        arrows = {'left': u'\u2190', 'up': u'\u2191', 'right': u'\u2192', 'down': u'\u2193' }
+        pi_temp = [['' for x in range(10)] for y in range(10)] 
+
+        for s in S:
+            pi_temp[s % 10][s / 10] = arrows[policy_map[s]].encode("utf-8")
+
+        for line in pi_temp:
+            for arrow in line:
+                print(arrow),
+                print('   '),
+            print('\n')
