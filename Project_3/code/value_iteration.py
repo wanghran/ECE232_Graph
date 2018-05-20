@@ -8,6 +8,7 @@ import value_map
 
 EPSILON = 0.01
 
+
 def value_iteration(env):
     # Initialization
     S = env.S
@@ -43,7 +44,7 @@ def value_iteration(env):
     # Computation
     for s in S:
         maximum = 0
-        i =0
+        i = 0
         for a in A:
             p_s = P[i][s]
             summation = 0
