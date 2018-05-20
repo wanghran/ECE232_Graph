@@ -77,11 +77,11 @@ def plot_policy(policy_map):
     pi_temp = [['' for x in range(10)] for y in range(10)] 
 
     for s in S:
-        pi_temp[int(s % 10)][int(s / 10)] = arrows[policy_map[s]].encode("utf-8")
+        pi_temp[int(s % 10)][int(s / 10)] = arrows[policy_map[s]]
 
     for line in pi_temp:
         for arrow in line:
-            print(arrow),
-            print('   '),
+            print(arrow ,end='')
+            print('\t', end='')
         print('\n')
     return None
