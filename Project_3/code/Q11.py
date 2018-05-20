@@ -18,8 +18,10 @@ def main():
     _, Expert_P = value_iteration.value_iteration(env)
 
     # Inverse Reinforcement Learning
-    acc_list = np.empty([500])
-    l1_list = np.arange(0.0, 5.0, 1)
+    acc_list = np.zeros(500)
+    # l1_list = np.arange(0.0, 5.0, 0.01)
+    l1_list = np.linspace(0.0, 5.0, 500)
+    j = 0
     for l1 in l1_list:
         learned_reward = irl.irl(env, Expert_P, Rmax, l1)
         learned_reward_mesh = np.zeros((size, size))
@@ -35,8 +37,10 @@ def main():
         for i in range(100):
             if (Agent_P[i] == Expert_P[i]):
                 acc += 1
-        np.append(acc_list, [acc/100.0])
+        acc_list[j] = acc/100.0
+        j += 1
     print(acc_list)
+    print(len(acc_list))
 
 
 if __name__ == '__main__':
