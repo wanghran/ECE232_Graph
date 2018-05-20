@@ -19,7 +19,6 @@ def value_iteration(env):
     V = np.zeros(len(S))
     V_tmp = np.zeros(len(S))
     PI = ['null'] * len(S)
-    print(P.shape)
     # Estimation
     while delta > EPSILON:
         delta = 0
