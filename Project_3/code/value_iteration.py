@@ -1,6 +1,6 @@
 import numpy as np
-import RF1
-import RF2
+from RF1 import RF1
+from RF2 import RF2
 import environment
 from environment import plot_policy
 import heat_map
@@ -65,14 +65,14 @@ def main():
     size = 10
     w = 0.1
     gamma = 0.8
-    reward = RF2.RF2().reward
+    reward = RF1().reward
     actions = {'up': 0, 'down': 1, 'left': 2, 'right': 3}
     env = environment.Environment(100, actions, w, gamma, reward)
 
     V_optimal, PI_optimal = value_iteration(env)
     V_mesh = np.zeros((size, size))
     for s in env.S:
-        V_mesh[int(s % 10), int(s / 10)] = V_optimal[s]
+        V_mesh[s % 10, s / 10] = float('%.3f' % (V_optimal[s]))
 
     # draw value_map
     value_map.value_map(V_mesh, 'Q2')
