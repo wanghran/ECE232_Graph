@@ -4,6 +4,8 @@ import value_iteration
 import RF1
 import RF2
 import irl
+import matplotlib.pyplot as plt
+from heat_map import heat_map
 
 
 def main():
@@ -39,8 +41,30 @@ def main():
                 acc += 1
         acc_list[j] = acc/100.0
         j += 1
-    print(acc_list)
-    print(len(acc_list))
+    Mlambda = l1_list.item(int(np.argmax(acc_list)))
+    print(Mlambda)
+    learned_reward = irl.irl(env, Expert_P, Rmax, Mlambda)
+    learned_reward_mesh = np.zeros((size, size))
+
+    for s in env.S:
+        learned_reward_mesh[int(s % 10), int(s / 10)] = learned_reward[s]
+    heat_map(learned_reward_mesh, 'reward heat map for lambda max') 
+    env.R = learned_reward_mesh
+    env.get_p()
+    optV, optP = value_iteration.value_iteration(env)
+    optV_mesh = np.zeros([size, size])
+    for s in env.S:
+        optV_mesh[int(s % 10), int(s / 10)] = optV[s]
+    heat_map(optV_mesh, 'heat map for the state value calculated \
+            from lambda max')
+
+    # lambda max = 1.8336673346693386
+
+    # plt.plot(l1_list, acc_list)
+    # plt.title('lambda value vs. accurary')
+    # plt.xlabel('lambda')
+    # plt.ylabel('accuracy')
+    # plt.show()
 
 
 if __name__ == '__main__':
