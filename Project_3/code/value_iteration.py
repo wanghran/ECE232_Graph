@@ -72,7 +72,7 @@ def main():
     V_optimal, PI_optimal = value_iteration(env)
     V_mesh = np.zeros((size, size))
     for s in env.S:
-        V_mesh[s % 10, s / 10] = float('%.3f' % (V_optimal[s]))
+        V_mesh[int(s % 10), int(s / 10)] = float('%.3f' % (V_optimal[s]))
 
     # draw value_map
     value_map.value_map(V_mesh, 'Q2')

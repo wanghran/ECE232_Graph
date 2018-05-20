@@ -19,7 +19,7 @@ def main():
 
     # Inverse Reinforcement Learning
     acc_list = np.empty([500])
-    l1_list = np.arange(0.0, 5.0, 0.01)
+    l1_list = np.arange(0.0, 5.0, 1)
     for l1 in l1_list:
         learned_reward = irl.irl(env, Expert_P, Rmax, l1)
         learned_reward_mesh = np.zeros((size, size))
