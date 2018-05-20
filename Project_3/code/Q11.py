@@ -48,15 +48,17 @@ def main():
 
     for s in env.S:
         learned_reward_mesh[int(s % 10), int(s / 10)] = learned_reward[s]
-    heat_map(learned_reward_mesh, 'reward heat map for lambda max') 
+    # heat_map(learned_reward_mesh, 'reward heat map for lambda max') 
     env.R = learned_reward_mesh
     env.get_p()
     optV, optP = value_iteration.value_iteration(env)
     optV_mesh = np.zeros([size, size])
     for s in env.S:
         optV_mesh[int(s % 10), int(s / 10)] = optV[s]
-    heat_map(optV_mesh, 'heat map for the state value calculated \
-            from lambda max')
+    # heat_map(optV_mesh, 'heat map for the state value calculated \
+            # from lambda max')
+    environment.plot_policy(optP)
+
 
     # lambda max = 1.8336673346693386
 
