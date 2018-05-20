@@ -1,6 +1,7 @@
 import numpy as np
 import RF1
 
+
 class Environment:
     #{'up': 0, 'down': 1, 'left': 2, 'right': 3}
 
@@ -36,7 +37,7 @@ class Environment:
         count =0
         for action in self.actions.keys():
             p_i = np.zeros((size, size))
-            grid = np.zeros((size/10,size/10))
+            grid = np.zeros((int(size/10), int(size/10)))
             for i in range(grid.shape[0]):
                 for j in range(grid.shape[1]):
                     prob = self.get_neighbor_p(i,j,action)
@@ -69,13 +70,14 @@ class Environment:
     def get_p(self):
         return self.P
 
+
 def plot_policy(policy_map):
     S = range(10 * 10)
     arrows = {'left': u'\u2190', 'up': u'\u2191', 'right': u'\u2192', 'down': u'\u2193' }
     pi_temp = [['' for x in range(10)] for y in range(10)] 
 
     for s in S:
-        pi_temp[s % 10][s / 10] = arrows[policy_map[s]].encode("utf-8")
+        pi_temp[int(s % 10)][int(s / 10)] = arrows[policy_map[s]].encode("utf-8")
 
     for line in pi_temp:
         for arrow in line:

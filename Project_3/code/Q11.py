@@ -1,23 +1,43 @@
-from cvxopt import matrix, solvers
 import numpy as np
 import environment
 import value_iteration
+import RF1
+import RF2
+import irl
 
 
-def Q11(A, opt_P, OG_reward):
-    lamb = np.arange(0.0, 5.0, 0.01)
-    env = environment.Environment(0.1, 100)
-    A = ['up', 'down', 'left', 'right']
+def main():
+    size = 10
+    w = 0.1
     gamma = 0.8
-    acc_list = np.empty([500])
+    reward = RF1.RF1().reward
+    Rmax = max(reward.flatten())
+    actions = {'up': 0, 'down': 1, 'left': 2, 'right': 3}
+    env = environment.Environment(100, actions, w, gamma, reward)
 
-    for i in lamb:
-        reward = None
-        S = range(10 * 10)
-        _, P = value_iteration.value_iteration(env, reward, S, A, gamma)
+    _, Expert_P = value_iteration.value_iteration(env)
+
+    # Inverse Reinforcement Learning
+    acc_list = np.empty([500])
+    l1_list = np.arange(0.0, 5.0, 0.01)
+    for l1 in l1_list:
+        learned_reward = irl.irl(env, Expert_P, Rmax, l1)
+        learned_reward_mesh = np.zeros((size, size))
+
+        for s in env.S:
+            learned_reward_mesh[int(s % 10), int(s / 10)] = learned_reward[s]
+        env.R = learned_reward_mesh
+        env.get_p()
+
+        _, Agent_P = value_iteration.value_iteration(env)
+
         acc = 0
-        for j in range(101):
-            if (P[j] == opt_P[j]):
+        for i in range(100):
+            if (Agent_P[i] == Expert_P[i]):
                 acc += 1
         np.append(acc_list, [acc/100.0])
-    plot(lamb, acc_list)
+    print(acc_list)
+
+
+if __name__ == '__main__':
+    main()

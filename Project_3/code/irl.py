@@ -2,22 +2,25 @@ from cvxopt import matrix, solvers
 import numpy as np
 
 
-def irl(n_states, n_actions, transition_probability, policy, discount, Rmax, l1):
-    A = set(range(n_actions))
+def irl(env, policy, Rmax, l1):
+    n_states = env.size
+    n_actions = len(env.actions.keys())
+    transition_probability = env.P
+    discount = env.gamma
+
+    A = set(env.actions.keys())
 
     # Minimise c . x.
     c = -np.hstack([np.zeros(n_states), np.ones(n_states), -l1 * np.ones(n_states)])
 
-    # TODO might need
-    # Set of actions to help manage reordering actions.
-    # The transition policy convention is different here to the rest of the code
-    # for legacy reasons; here, we reorder axes to fix this. We expect the
-    # new probabilities to be of the shape (A, N, N).
-    # transition_probability = np.transpose(transition_probability, (1, 0, 2))
+    def get_index(env, a):
+        return list(env.actions.keys()).index(a)
 
     def T(a, s):
-        return np.dot(transition_probability[policy[s], s] - transition_probability[a, s],
-                      np.linalg.inv(np.eye(n_states) - discount*transition_probability[policy[s]]))
+        return np.dot(transition_probability[get_index(env, policy[s]), s]
+                                    - transition_probability[get_index(env, a), s],
+                      np.linalg.inv(np.eye(n_states)
+                                    - discount*transition_probability[get_index(env, a)]))
 
     # 300 * 100
     T_stack = np.vstack([
