@@ -75,9 +75,9 @@ def main():
         V_mesh[int(s % 10), int(s / 10)] = float('%.3f' % (V_optimal[s]))
 
     # draw value_map
-    value_map.value_map(V_mesh, 'Q2')
+    value_map.value_map(V_mesh, 'Optimal Value of the States')
     # draw heat_map
-    heat_map.heat_map(V_mesh, 'Q3')
+    heat_map.heat_map(V_mesh, 'Optimal Value Heat Map')
     # draw policy_map
     plot_policy(PI_optimal)
 
