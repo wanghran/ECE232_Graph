@@ -95,4 +95,4 @@ The state value heat map also shows some sort of discrepency between the ground 
 In the orginal settings, there are a few states with very low rewards (-100) and compare with other states with 0 or 10 as rewards. There is a huge difference between rewards. For each state, the expert policy represents the ground truth's preference of a particular action over others. In essence, it represents a relative measure and not absolute value difference. Thus, it is very hard for IRL to generate an ideal policy due to a few huge negative rewards in the original reward functions. 
 
 ## Question 23
-
+![learned policy](./plots/linzuo/Q23_1.png)

@@ -72,10 +72,10 @@ def main():
     optV_mesh = np.zeros([size, size]) 
     for s in env.S: 
         optV_mesh[int(s % 10), int(s / 10)] = optV[s] 
-    heat_map(optV_mesh, 'Heat map of the state value calculated from Lambda max') 
+    heat_map(optV_mesh, 'Q21 Heat map of the state value calculated from Lambda max') 
  
     print("###### Q23######")   
-    policy_map.p_map(optV_mesh,  'Q21 State Value Heat Map', optP)
+    policy_map.p_map(optV_mesh,  'Q23 Policy learned from extracted rewards', optP)
 
 
 if __name__ == '__main__':
