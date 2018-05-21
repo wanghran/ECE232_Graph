@@ -7,6 +7,7 @@ import RF2
 import irl
 import matplotlib.pyplot as plt 
 from heat_map import heat_map 
+import policy_map
 
 def main():
     size = 10
@@ -74,7 +75,8 @@ def main():
     heat_map(optV_mesh, 'Heat map of the state value calculated from Lambda max') 
  
     print("###### Q23######")   
-    plot_policy(optP)
+    policy_map.p_map(optV_mesh,  'Q21 State Value Heat Map', optP)
+
 
 if __name__ == '__main__':
     main()
