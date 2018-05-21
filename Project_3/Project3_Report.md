@@ -75,7 +75,9 @@ The most part of the two plots are the same. The all have the minimum reward 0 a
 ![Policy Map from irl](plots/Wang/Q16.png)
 
 ## Question 17
-
+### Ground Truth
+![GT](plots/Wang/Q5.png)
+![Policy Map from irl](plots/Wang/Q16.png)
 Those two policy graphs are almost the same with slight difference. State 33, 34, 36 and 42 the origin optimal policy suggests turning right, but the learned policy suggests turing down. 
 
 ## Question 18
