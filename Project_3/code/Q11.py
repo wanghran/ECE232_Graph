@@ -6,6 +6,7 @@ import RF2
 import irl
 import matplotlib.pyplot as plt
 from heat_map import heat_map
+from policy_map import p_map
 
 
 def main():
@@ -57,7 +58,7 @@ def main():
         optV_mesh[int(s % 10), int(s / 10)] = optV[s]
     # heat_map(optV_mesh, 'heat map for the state value calculated \
             # from lambda max')
-    environment.plot_policy(optP)
+    p_map(optV_mesh, 'Optimal Policy for lambda max', optP)
 
 
     # lambda max = 1.8336673346693386

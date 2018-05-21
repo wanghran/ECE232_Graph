@@ -33,10 +33,37 @@ The plot clearly shows that the optimal policy is to get to the bottom right, wh
 
 [comment]: # (It might not be possible to get the optimal action by only observing the neighbor.)
 
-## Question 6
-
 
 # 2. Inverse Reinforcement learning
+
+## Question 11
+
+![λ against Accuracy for Policy from RF 1](plots/Wang/Q11.png)
+
+## Question 12
+
+$\lambda_{max} \approx 1.834$
+
+## Question 13
+
+![Groud Truth Reward Map](plots/Wang/Q1_1.png)
+![Reward from irl Heat Map](plots/Wang/Q13.png)
+
+## Question 14
+
+![State Value Heat Map](plots/Wang/Q14.png)
+
+## Question 15
+
+The most part of the two plots are the same. The all have the minimum reward 0 and the maximum reward 1. The only difference between those two plots are at the bottom right corner. For the ground truth reward, in this case reward function 1, there is only one state with positive reward, which is the bottom right corner. However, for the learned reward, although the reward for the bottom right corner is the same, its two neighbors have positive reward. 
+
+## Question 16
+
+![Policy Map from irl](plots/Wang/Q16.png)
+
+## Question 17
+
+Those two policy graphs are almost the same with slight difference. 
 
 ## Question 18
 ![λ against Accuracy](./plots/linzuo/Q18_1.png)

@@ -3,7 +3,7 @@ from RF1 import RF1
 from RF2 import RF2
 import environment
 from environment import plot_policy
-import heat_map
+from heat_map import heat_map
 import value_map
 import policy_map
 
@@ -66,7 +66,7 @@ def main():
     size = 10
     w = 0.1
     gamma = 0.8
-    reward = RF1().reward
+    reward = RF2().reward
     actions = {'up': 0, 'down': 1, 'left': 2, 'right': 3}
     env = environment.Environment(100, actions, w, gamma, reward)
 
@@ -76,9 +76,10 @@ def main():
         V_mesh[int(s % 10), int(s / 10)] = float('%.3f' % (V_optimal[s]))
 
     #draw value_map
-    value_map.value_map(V_mesh, 'Q21 State Value Heat Map')
+    value_map.value_map(V_mesh, 'State Value Map')
     #draw heat_map
-    policy_map.p_map(V_mesh,  'Q21 State Value Heat Map', PI_optimal)
+    heat_map(V_mesh, 'State Value Heat Map')
+    policy_map.p_map(V_mesh,  'Optimal Policy', PI_optimal)
 
 if __name__ == '__main__':
     main()
