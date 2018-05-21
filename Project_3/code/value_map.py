@@ -3,10 +3,10 @@ import matplotlib.pyplot as plt
 
 
 def value_map(value, name):
-    x = np.arange(0.0, 11.0, 1.0)
-    y = np.arange(0.0, 11.0, 1.0)
+    x = np.arange(0.0, 10.0, 1.0)
+    y = np.arange(0.0, 10.0, 1.0)
     X, Y = np.meshgrid(x, y)
-    z = np.zeros([11, 11])
+    z = np.zeros([10, 10])
     s = value.shape
     for i in range(s[0]):
         for j in range(s[1]):
