@@ -5,6 +5,7 @@ import environment
 from environment import plot_policy
 import heat_map
 import value_map
+import policy_map
 
 EPSILON = 0.01
 
@@ -74,13 +75,10 @@ def main():
     for s in env.S:
         V_mesh[int(s % 10), int(s / 10)] = float('%.3f' % (V_optimal[s]))
 
-    # draw value_map
-    value_map.value_map(V_mesh, 'Optimal Value of the States')
-    # draw heat_map
-    heat_map.heat_map(V_mesh, 'Optimal Value Heat Map')
-    # draw policy_map
-    plot_policy(PI_optimal)
-
+    #draw value_map
+    value_map.value_map(V_mesh, 'Q21 State Value Heat Map')
+    #draw heat_map
+    policy_map.p_map(V_mesh,  'Q21 State Value Heat Map', PI_optimal)
 
 if __name__ == '__main__':
     main()
