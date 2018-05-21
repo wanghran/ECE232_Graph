@@ -56,7 +56,10 @@ $\lambda_{max} \approx 1.834$
 
 ## Question 13
 
+### Ground Truth
 ![Groud Truth Reward Map](plots/Wang/Q1_1.png)
+
+### Extracted Reward
 ![Reward from irl Heat Map](plots/Wang/Q13.png)
 
 ## Question 14
