@@ -31,7 +31,7 @@ According to the plot from question 3, the closer a state is to the bottom right
 ![Optimal policy](plots/Wang/Q5.png)
 The plot clearly shows that the optimal policy is to get to the bottom right, which has the highest reward. 
 
-[comment]: # (It might not be possible to get the optimal action by only observing the neighbor.)
+[comment]: # (It could be possible to get the optimal action by only observing the neighbor. Based on the RL algorithm, the optimal value of the neighbors already refect the maximum value considering their neighbors. Therefore, the state value of its neighbors fully illustrate the optimal value from the whole state set.)
 
 ## Question 6
 ![Q6](plots/linzuo/Q6_1.png)
@@ -73,14 +73,14 @@ The most part of the two plots are the same. The all have the minimum reward 0 a
 
 ## Question 17
 
-Those two policy graphs are almost the same with slight difference. 
+Those two policy graphs are almost the same with slight difference. State 33, 34, 36 and 42 the origin optimal policy suggests turning right, but the learned policy suggests turing down. 
 
 ## Question 18
 ![λ against Accuracy](./plots/linzuo/Q18_1.png)
 
 ## Question 19
 
-From the graph, we can see that lambda associated with maximum accuracy is  0.8917 and the accuray value is 0.61. The plot shows that there is a global minimum when the l1 regularization term is around 1.5. The relationship between lambda and accuracy is not linear or resembles any low degree polynomials.
+From the graph, we c·an see that lambda associated with maximum accuracy is  0.8917 and the accuray value is 0.61. The plot shows that there is a global minimum when the l1 regularization term is around 1.5. The relationship between lambda and accuracy is not linear or resembles any low degree polynomials.
 
 
 ## Question 20
