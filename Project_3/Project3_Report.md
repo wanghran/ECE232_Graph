@@ -15,3 +15,13 @@
 
 ![Heat map for RF 1](./plots/Wang/Q1_1.png)
 ![Heat map for RF 2](./plots/Wang/Q1_2.png)
+
+## Question 2
+
+## Question 3
+
+## Question 4
+
+## Question 5
+
+## Question 6
