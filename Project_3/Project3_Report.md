@@ -33,7 +33,17 @@ The plot clearly shows that the optimal policy is to get to the bottom right, wh
 
 [comment]: # (It might not be possible to get the optimal action by only observing the neighbor.)
 
+## Question 6
+![Q6](plots/linzuo/Q6_1.png)
+State values shows a good reflection of the given reward function where the penalty is very high at the center. And state value gets closer as it move closer to the bottom right corner.
+## Question 7
+![Q7](plots/linzuo/Q7_1.png)
+## Question 8
+The distribution of state values shows a good reflection of the given reward function where the penalty is very high at the center. And state value gets closer as it move closer to the bottom left corner. As a state get closer to bottom right, its value increases since the reward is high at the bottom right.
+## Question 9
+![Q9](plots/linzuo/Q9_1.png)
 
+The optmial policy of this agent matches our intuition since it wants to avoid the center areas and has a general trend of moving to bottom right corner of the grid. At the end, it tries to stay in the corner by moving out of the grid.
 # 2. Inverse Reinforcement learning
 
 ## Question 11
@@ -96,3 +106,9 @@ In the orginal settings, there are a few states with very low rewards (-100) and
 
 ## Question 23
 ![learned policy](./plots/linzuo/Q23_1.png)
+
+
+## Question 24
+
+![ground truth policy](./plots/linzuo/Q24_1.png)
+As we can see, the general trend is still reaching for the reward at the bottom right corner. However, there is a discrepency. Both the learned policy and ground truth policy has outward actions to avoid going into the center rewards with penalty policy. However, the learned state value functions cannot represent the large penalties represented in original reward function from the ground truth policy.  
