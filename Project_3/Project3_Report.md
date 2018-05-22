@@ -48,11 +48,11 @@ The optmial policy of this agent matches our intuition since it wants to avoid t
 
 ## Question 11
 
-![λ against Accuracy for Policy from RF 1](plots/Wang/Q11.png)
+![λ against Accuracy for Policy from RF 1](plots/Wang/accuracy.png)
 
 ## Question 12
 
-$\lambda_{max} \approx 1.834$
+$\lambda_{max} \approx 0.431$
 
 ## Question 13
 
@@ -60,11 +60,11 @@ $\lambda_{max} \approx 1.834$
 ![Groud Truth Reward Map](plots/Wang/Q1_1.png)
 
 ### Extracted Reward
-![Reward from irl Heat Map](plots/Wang/Q13.png)
+![Reward from irl Heat Map](plots/Wang/reward_heatmap_lambda.png)
 
 ## Question 14
 
-![State Value Heat Map](plots/Wang/Q14.png)
+![State Value Heat Map](plots/Wang/state_value_lambda.png)
 
 ## Question 15
 
@@ -72,7 +72,7 @@ The most part of the two plots are the same. The all have the minimum reward 0 a
 
 ## Question 16
 
-![Policy Map from irl](plots/Wang/Q16.png)
+![Policy Map from irl](plots/Wang/policy_lambda.png)
 
 ## Question 17
 ### Ground Truth
