@@ -85,7 +85,7 @@ Those two policy graphs are almost the same with slight difference. State 33, 34
 
 ## Question 19
 
-From the graph, we c·an see that lambda associated with maximum accuracy is  0.8917 and the accuray value is 0.61. The plot shows that there is a global minimum when the l1 regularization term is around 1.5. The relationship between lambda and accuracy is not linear or resembles any low degree polynomials.
+From the graph, we c·an see that lambda associated with maximum accuracy is  0.0400 and the accuray value is 0.74. The plot shows that there is a global minimum when the l1 regularization term is around 1.05. The relationship between lambda and accuracy is not linear or resembles any low degree polynomials.
 
 
 ## Question 20
