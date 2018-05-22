@@ -31,7 +31,7 @@ According to the plot from question 3, the closer a state is to the bottom right
 ![Optimal policy](plots/Wang/Q5.png)
 The plot clearly shows that the optimal policy is to get to the bottom right, which has the highest reward. 
 
-[comment]: # (It could be possible to get the optimal action by only observing the neighbor. Based on the RL algorithm, the optimal value of the neighbors already refect the maximum value considering their neighbors. Therefore, the state value of its neighbors fully illustrate the optimal value from the whole state set.)
+It might not be possible to get the optimal action by only observing the neighbor. Although the optimal value of the neighbors already refect the maximum value considering their neighbors, the transition probability of each states should be considered. The best policy should calculate the expected value of each neighbor rather than look at the state value sheer.
 
 ## Question 6
 ![Q6](plots/linzuo/Q6_1.png)
@@ -67,8 +67,9 @@ $\lambda_{max} \approx 0.431$
 ![State Value Heat Map](plots/Wang/state_value_lambda.png)
 
 ## Question 15
-
-The most part of the two plots are the same. The all have the minimum reward 0 and the maximum reward 1. The only difference between those two plots are at the bottom right corner. For the ground truth reward, in this case reward function 1, there is only one state with positive reward, which is the bottom right corner. However, for the learned reward, although the reward for the bottom right corner is the same, its two neighbors have positive reward. 
+### Ground Truth
+![GT State Value](plots/Wang/Q3.png)
+The two graphs look quite different. The original state value graph has a huge area of low value, while the extracted state value graph has a huge area of high value. Also, the lowest state value is 0 while the lowest at the new graph is below -2. However, they share the same trend. The top left corners of both graph have the lowest state value and the value increase across the diagonal. And the graphs look symmetric around their diagonals. 
 
 ## Question 16
 
@@ -77,7 +78,7 @@ The most part of the two plots are the same. The all have the minimum reward 0 a
 ## Question 17
 ### Ground Truth
 ![GT](plots/Wang/Q5.png)
-![Policy Map from irl](plots/Wang/Q16.png)
+![Policy Map from irl](plots/Wang/policy_lambda.png)
 Those two policy graphs are almost the same with slight difference. State 33, 34, 36 and 42 the origin optimal policy suggests turning right, but the learned policy suggests turing down. 
 
 ## Question 18
@@ -95,6 +96,8 @@ From the graph, we c·an see that lambda associated with maximum accuracy is  0.
 ![ground truth reward](./plots/linzuo/Q20_2.png)
 
 Unlike extracted reward from function 1, the extracted reward is not very consistant with its corresponding ground truth.
+
+
 
 ## Question 21
 ### Extracted State Value
