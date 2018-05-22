@@ -17,8 +17,10 @@ def value_iteration(env):
     reward = env.R
     gamma = env.gamma
     P = env.P
-    A = env.actions.keys()
+    A = env.actions.keys()        
     V = np.zeros(len(S))
+    for s in S:
+        V[s] = reward[s%10][s//10]
     V_tmp = np.zeros(len(S))
     PI = ['null'] * len(S)
     # Estimation
