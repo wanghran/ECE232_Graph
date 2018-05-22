@@ -45,6 +45,45 @@ The distribution of state values shows a good reflection of the given reward fun
 
 The optmial policy of this agent matches our intuition since it wants to avoid the center areas and has a general trend of moving to bottom right corner of the grid. At the end, it tries to stay in the corner by moving out of the grid.
 # 2. Inverse Reinforcement learning
+## Question 10
+
+Since the optimization problem is to maxmize the objective function and satisfy a few equality/inequality constraints, we wil write the optimization problem in the form of LP.
+
+\begin{subequations}
+	\begin{align}
+	\max_\limits{x} &\quad  c^T x \nonumber\\
+	\mbox{s.t.}~~~& Dx \leq 0 \nonumber
+	\end{align}
+\end{subequations}
+where $c$ is a vector and $D$ is a matrix. Since the original optimization problem has a constraint $|R| \leq R_{max}$, which cannot be transformed to the form of $Dx \leq 0$, an additional element $1$ vector will be added in optimized variable $x$. However, it should be noted that in Python LP solver, the general form of the LP contains the constraint $x \leq C$ where C is a constant, such an additional element is not necessary. 
+
+Let $x=[x_1;x_2;x_3;1]^T=[R; t; u; 1]^T$ where $R, t, u, 1$ are all $|S| \times 1$ vectors. We first write the objective function and the constraints in the matrix form and then change it to the form of $Dx\leq 0$.
+
+
+For example, $c^Tx=[0~1~ -\lambda~ 0][R;t;u;1]^T$.
+
+
+The first constraint $t-(P_{a_1}-P_a)(I-\gamma P_{a_1})^{-1}R \leq 0$ can be written as $x_2 -Ax_1 \leq 0 \rightarrow [-A~1~0~0][x_1;x_2;x_3;1]^T\leq 0$ 	where $A$ is matrix $(P_{a_1}-P_a)(I-\gamma P_{a_1})^{-1}$.
+
+The second constraint $-(P_{a_1}-P_a)(I-\gamma P_{a_1})^{-1}R \leq 0$ can be written as $-Bx_1 \leq 0 \rightarrow [-B~0~0~0][x_1;x_2;x_3;1]^T\leq 0$ 	where $B$ is matrix $(P_{a_1}-P_a)(I-\gamma P_{a_1})^{-1}$.
+
+The third constraint $-u \leq R \leq u$ can be written as $-x_3 \leq x_1$ and $x_1 \leq x_3$, which can be changed to $[-1~0~-1~0][x_1;x_2;x_3;1]^T \leq 0$ and $[1~0~-1~0][x_1;x_2;x_3;1]^T \leq 0$
+
+The last one is $-R_{max}\leq R \leq R_{max}$, which can be written as 
+$[-1~0~0~-R_{max}][x_1;x_2;x_3;1]^T \leq 0$ and $[1~0~0~-R_{max}][x_1;x_2;x_3;1]^T \leq 0$
+
+Therefore, The optimization problem is formulated with $c^T=[0;1;-\lambda; 0]$, \\$D= 	\left[ {\begin{array}{*{20}c}
+	-&A \quad &I\quad &0 ~\quad &0\\
+	-&B \quad &0\quad &0 ~\quad &0\\
+	-&I \quad &0 \quad -&I \quad&0\\
+	&I \quad &0 \quad -&I \quad&0\\
+	-&I \quad &0 \quad &0 \quad&-R_{max}I\\
+	&I \quad &0 \quad &0 \quad &-R_{max}I
+	\end{array}} \right]$\\
+where $A$ and $B$ are matrix $(P_{a_1}-P_a)(I-\gamma P_{a_1})^{-1}$. $I$ is identity matrix.
+
+Additionally, in Python,  Linear programs can be specified via the solvers.lp() function. 
+
 
 ## Question 11
 
@@ -122,9 +161,9 @@ In the orginal settings, there are a few states with very low rewards (-100) and
 As we can see, the general trend is still reaching for the reward at the bottom right corner. However, there is a discrepency. Both the learned policy and ground truth policy has outward actions to avoid going into the center rewards with penalty policy. However, the learned state value functions cannot represent the large penalties represented in original reward function from the ground truth policy.
 
 ## Question 25
-From the learned policy, we can see one of the discrepancy is that the negative reward is at the center top of the grid. Which is different from the ground truth reward function.
+From the learned policy, we can see one of the discrepancy is that the negative reward is at the center top of the grid. Which is different from the ground truth reward function. We think the reason is that value iteration should reflect the reward value and thus reward value should be a good indication of state value functions learned later. As a result, we slightly changed our value iteration function by initializing the value function with the learned reward function. 
 
-In order to improve the accuracy, we changed our value iteration alogrithm so that V is initialized to the given reward function so th
+In order to improve the accuracy, we changed our value iteration alogrithm so that V is initialized to the given reward function.
 
 Improved Accuracy
 ![Q25](./plots/linzuo/Q25_1.png)
