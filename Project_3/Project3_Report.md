@@ -25,7 +25,7 @@
 ![Heat map for RF 1](plots/Wang/Q3.png)
 
 ## Question 4
-According to the plot from question 3, the closer a state is to the bottom right state, the higher the optimal value of that state is. Since the bottom right corner, from reward function 1, has the biggest reward comparing to all the other states, it is quite obvious that each state value, from that corner to the other three, should decrease gradually as going further from the bottom right.  
+According to the plot from question 3, the closer a state is to the bottom right state, the higher the optimal value of that state is. Since the bottom right corner, from reward function 1, has the biggest reward comparing to all the other states, it is quite obvious that each state value, from that corner to the other three, should decrease gradually as going further from the bottom right. Also, the graph looks symmetric along the diagonal. 
 ## Question 5
 
 ![Optimal policy](plots/Wang/Q5.png)
