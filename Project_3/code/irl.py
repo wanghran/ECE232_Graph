@@ -20,7 +20,7 @@ def irl(env, policy, Rmax, l1):
         return np.dot(transition_probability[get_index(env, policy[s]), s]
                                     - transition_probability[get_index(env, a), s],
                       np.linalg.inv(np.eye(n_states)
-                                    - discount*transition_probability[get_index(env, a)]))
+                                    - discount*transition_probability[get_index(env, policy[s])]))
 
     # 300 * 100
     T_stack = np.vstack([
