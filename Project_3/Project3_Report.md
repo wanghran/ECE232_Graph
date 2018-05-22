@@ -163,10 +163,12 @@ As we can see, the general trend is still reaching for the reward at the bottom 
 ## Question 25
 From the learned policy, we can see one of the discrepancy is that the negative reward is at the center top of the grid. Which is different from the ground truth reward function. We think the reason is that value iteration should reflect the reward value and thus reward value should be a good indication of state value functions learned later. As a result, we slightly changed our value iteration function by initializing the value function with the learned reward function. 
 
-In order to improve the accuracy, we changed our value iteration alogrithm so that V is initialized to the given reward function.
+In order to improve the accuracy, we changed our value iteration alogrithm so that V is initialized to the given reward function. The accuracy increases from 74% to 77%, around 4.1% improvement. 
 
 Improved Accuracy
 ![Q25](./plots/linzuo/Q25_1.png)
 Newly Learned optimal policy map
 ![Q25](./plots/linzuo/Q25_2.png)
+
+The second major discrepency is that the optimal policy of learned reward has different destination comparing to the ground truth. All potential paths settle at state 39 and state 89, rather than state 99. 
 
