@@ -122,9 +122,9 @@ In the orginal settings, there are a few states with very low rewards (-100) and
 As we can see, the general trend is still reaching for the reward at the bottom right corner. However, there is a discrepency. Both the learned policy and ground truth policy has outward actions to avoid going into the center rewards with penalty policy. However, the learned state value functions cannot represent the large penalties represented in original reward function from the ground truth policy.
 
 ## Question 25
-From the learned policy, we can see one of the discrepancy is that the negative reward is at the center top of the grid. Which is different from the ground truth reward function.
+From the learned policy, we can see one of the discrepancy is that the negative reward is at the center top of the grid. Which is different from the ground truth reward function. We think the reason is that value iteration should reflect the reward value and thus reward value should be a good indication of state value functions learned later. As a result, we slightly changed our value iteration function by initializing the value function with the learned reward function. 
 
-In order to improve the accuracy, we changed our value iteration alogrithm so that V is initialized to the given reward function so th
+In order to improve the accuracy, we changed our value iteration alogrithm so that V is initialized to the given reward function.
 
 Improved Accuracy
 ![Q25](./plots/linzuo/Q25_1.png)
