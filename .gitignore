@@ -12,3 +12,5 @@ __pycache__
 Project_3/\.idea/
 *.pyc
 Project_4/project4_data
+Project_4/.env/
+requirements.txt
