@@ -9,11 +9,11 @@ parser.add_argument("output", help="output file name",
 args = parser.parse_args()
 
 
-with open('../data/' + args.input, 'r', encoding = "ISO-8859-1") as f:
+with open( args.input, 'r', encoding = "ISO-8859-1") as f:
     data = f.readlines()
 p = re.compile(r'\((\d{4}|\?\?\?\?)(\)|/[a-zA-Z]*\))')
 
-with open('../output/'+args.output, "w+") as f:
+with open( args.output, "w+") as f:
     for line in data:
         temp = line.split('\t\t')
         if len(temp) <= 1:
