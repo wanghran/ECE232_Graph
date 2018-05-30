@@ -18,14 +18,18 @@ def MD(input=args.input):
         for movie in movies:
             if(movie in movie_dict):
                 assert type(movie_dict[movie]) is list
-                movie_dict[movie].extend(ident)
+                movie_dict[movie].extend([ident])
             else:
                 movie_dict[movie] = [ident]
     return movie_dict
 
 
 def main():
-    print(MD())
+    dic = MD()
+    for movie in dic:
+        for ids in dic[movie]:
+            assert type(ids) is int
+
 
 if __name__ == '__main__':
     main()
