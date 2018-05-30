@@ -13,7 +13,7 @@ def MD(input=args.input):
     movie_dict = {}
     for line in data:
         temp = line.split('||')
-        ident = temp[0]
+        ident = int(temp[0])
         movies = temp[2].split('\t\t')
         for movie in movies:
             if(movie in movie_dict):
