@@ -13,6 +13,7 @@ with open( args.input + 'actor_movies.txt', 'r', encoding = "ISO-8859-1") as f:
     data = f.readlines()
 p = re.compile(r'\((\d{4}|\?\?\?\?)(\)|/[a-zA-Z]*\))')
 
+id = 0
 with open( args.output, "w+") as f:
     for line in data:
         temp = line.split('\t\t')
@@ -28,8 +29,10 @@ with open( args.output, "w+") as f:
         if len(movies) < 10:
             continue
         str_movies = '\t\t'.join(movies)
+        f.write('%d||' % id)
         f.write(actor + '||')
         f.write(str_movies + "\n")
+        id += 1
 
 with open( args.input + 'actress_movies.txt', 'r', encoding = "ISO-8859-1") as f:
     data = f.readlines()
@@ -50,5 +53,7 @@ with open( args.output, "a") as f:
         if len(movies) < 10:
             continue
         str_movies = '\t\t'.join(movies)
+        f.write('%d||' % id)
         f.write(actor + '||')
         f.write(str_movies + "\n")
+        id +=1
