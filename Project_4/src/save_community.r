@@ -1,4 +1,5 @@
 library('igraph')
-wc <- cluster_fast_greedy(graph)
+g <- read_graph('../output/movie_edge_list.txt', format='ncol', directed=FALSE)
+wc <- cluster_fast_greedy(g)
 x<-communities(wc)
-writeLines(unlist(lapply(x, paste, collapse=" ")),"outfile.txt")
+writeLines(unlist(lapply(x, paste, collapse=" ")),"community.txt")
