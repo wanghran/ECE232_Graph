@@ -22,14 +22,3 @@ def MD(input=args.input):
             else:
                 movie_dict[movie] = [ident]
     return movie_dict
-
-
-def main():
-    dic = MD()
-    for movie in dic:
-        for ids in dic[movie]:
-            assert type(ids) is int
-
-
-if __name__ == '__main__':
-    main()

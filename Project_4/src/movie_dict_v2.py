@@ -22,7 +22,7 @@ def MD(input=args.input):
             else:
                 movie_dict[movie] = [ident]
 
-    for movie in movie_dict:
+    for movie in list(movie_dict):
         if(len(movie_dict[movie]) < 5):
             del(movie_dict[movie])
 
