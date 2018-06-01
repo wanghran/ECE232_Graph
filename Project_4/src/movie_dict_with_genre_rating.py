@@ -49,7 +49,7 @@ with open(args.output, 'w+') as f:
         if (movie_d in genre_dic):
             f.write(genre_dic[movie_d].replace('\n', '') + '||')
         else:
-            err.write(movie_d + '\n')
+            err.write(str(movie_id) + '||' + movie_d + '\n')
         for i in range(len(movie_dict[movie]) - 1):
             f.write(str(movie_dict[movie][i]) + '\t\t')
         f.write(str(movie_dict[movie][-1]) + '\n')
