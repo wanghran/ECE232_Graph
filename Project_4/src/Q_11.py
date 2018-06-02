@@ -1,13 +1,4 @@
-import matplotlib.pyplot as plt
-import numpy as np
 import operator
-
-# with open('../data/movie_rating.txt', 'r', encoding='ISO-8859-1') as f:
-#     movie_rating = f.readlines()
-#     rates = {}
-#     for line in movie_rating:
-#         temp = line.split('\t\t')
-#         rates[temp[0]] = float(temp[1].split('\n')[0])
 
 with open('../output/movie_dict.txt', 'r') as f:
     movie_dict = f.readlines()
@@ -39,7 +30,9 @@ with open('../output/movie_edge_list.txt', 'r') as f:
             if int(temp[1]) == movie:
                 weights[int(temp[0])] = float(temp[2].split('\n')[0])
         sorted_weights = sorted(weights.items(), key=operator.itemgetter(1))
-        top_5 = sorted_weights[0:4]
-        print(top_5)
+        top_5 = sorted_weights[0:5]
+        print('----------------')
+        print(movies[movie], communities[movie])
+        print('\n')
         for pair in top_5:
             print(movies[pair[0]], communities[pair[0]])
