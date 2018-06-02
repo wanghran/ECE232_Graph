@@ -1,8 +1,3 @@
-import re
-import csv
-import argparse
-
-
 with open('../output/out.txt', 'r') as f:
     actor_data = f.readlines()
 
