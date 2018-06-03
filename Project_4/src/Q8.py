@@ -56,40 +56,42 @@ with open('../output/community.txt', 'r') as f:
 
 selected_comms = np.random.choice(comms, 10)
 
-# for m in comms:
-#     print(len(m.split(' ')))
+for m in comms:
+    print(len(m.split(' ')))
 
-# for comm in selected_comms:
-#     comm_genres = []
-#     comm = comm.split(' ')
-#     comm_genre_count = {}
-#     total = 0
-#     for movie_id in comm:
-#         genre = movies[int(movie_id)].genre
-#         if genre != None:
-#             comm_genres.append(genre)
-#             total += 1
-#         if genre in comm_genre_count:
-#             comm_genre_count[genre] += 1
-#         else:
-#             comm_genre_count[genre] = 1
+for comm in selected_comms:
+    comm_genres = []
+    comm = comm.split(' ')
+    comm_genre_count = {}
+    total = 0
+    for movie_id in comm:
+        genre = movies[int(movie_id)].genre
+        if genre != None:
+            comm_genres.append(genre)
+            total += 1
+        if genre in comm_genre_count:
+            comm_genre_count[genre] += 1
+        else:
+            comm_genre_count[genre] = 1
 
-#     scores = []
-#     for g in comm_genres:
-#         c_i = comm_genre_count[g]
-#         p_i = comm_genre_count[g] / total
-#         q_i = genre_count[g] / len(genre_dict)
-#         scores.append(np.log(c_i) *  p_i / q_i)
+    scores = []
+    for g in comm_genres:
+        c_i = comm_genre_count[g]
+        p_i = comm_genre_count[g] / total
+        q_i = genre_count[g] / len(genre_dict)
+        if np.log(c_i) *  p_i / q_i == 0:
+            print("zero appeared")
+        scores.append(np.log(c_i) *  p_i / q_i)
         
-#     max_i = np.argmax(scores)
-#     print("#################################")
-#     print('The genre with the highest score is {}, the score is {}'.format(comm_genres[max_i], scores[max_i]))\
+    max_i = np.argmax(scores)
+    print("#################################")
+    print('The genre with the highest score is {}, the score is {}'.format(comm_genres[max_i], scores[max_i]))\
 
-#     plt.hist(comm_genres, bins='auto')  # arguments are passed to np.histogram
-#     plt.title("Frequency of Genres: community # {}".format(i))
-#     plt.xticks(rotation='vertical')
-#     plt.show()
-#     i += 1
+    plt.hist(comm_genres, bins='auto')  # arguments are passed to np.histogram
+    plt.title("Frequency of Genres: community # {}".format(i))
+    plt.xticks(rotation='vertical')
+    plt.show()
+    i += 1
 
 with open ('../output/8c.txt', 'w+') as f:
 
