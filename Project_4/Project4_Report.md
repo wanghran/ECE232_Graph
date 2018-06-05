@@ -153,11 +153,17 @@ The most dominant genre calculated using the scoring function are different from
 
 #### (c)
  ![c1](./plots/Q7_11.png)
-    In terms of frequency, the four genre share the same count. The most dominant genre in this community is Short and the score is 8.48
+    In terms of frequency, the above four genre share the same count. According to the scoring function, the most dominant genre in this community is Short and the score is 8.48
 
 ![c1](./plots/Q8c.png)
 
+The three most influential actors are as follows:
 
+* Desjardins, Nick
+* Lafond-Martel, Olivier
+* Legros, Simon (I)
+
+They are decided by counting out degrees. These actors acted in all 13 of the movies from the community. They help formed the entire community by acting in all these movies from the community. Also, they acted in movies mainly in the genre of this community from the entire movie dataset.
 
 
 ## 2.3 Neighborhood analysis of movies
@@ -223,3 +229,15 @@ Kingudamu hÃ¢tsu: BÃ¢su bai surÃ®pu (2010): 7
 
 We use three features in the model: the genre score as described in question 8, the actor score, which is the mean rating of the movies in which the actor participated in the community, and the director score, which is the mean rating of the movies that the director directed in the community. The root mean square error of our model is 0.82. According to our model, Batman v Superman: Dawn of Justice (2016) got 6.35; Mission: Impossible - Rogue Nation (2015) got 6.44 and Minions (2015) got 7.80.
 ### Question 13
+
+We constructed a bipartite graph using actors/actress and movies. Then, a weight is assigend to each actor/actress based on the average ratings of the movie they acted. We beliveve the justification is that actors/actress are usually judged by the ratings of the movies they played in. As a result, we assgiend a weight to each actor based on the outgoing edges.
+
+And after that, we have a weight for each actor/actress. Then, we reversly assign ratings to a movie based on the actors/actress it has. We believe that movie ratings are usually strongly affected by the actors/actress. And finally, this is used as our prediction method.
+
+The **RMSE** for this bipartite graph approach is **2.23**
+
+* The predicted score for Batman v Superman: Dawn of Justice (2016) is **4.17**
+* The predicted score for Mission: Impossible - Rogue Nation (2015) is **4.43**
+* The predicted score for Minions (2015) is **6.12**
+
+The result of this prediction method is worse than the result of linear regression which has a RMSE of **0.82**. We think one of the biggest reason is that we assgined equal weights for the movies that an actor/actress played in and vice versa. And this is a bad assumption since the contributions from actor/actress to a movie various.

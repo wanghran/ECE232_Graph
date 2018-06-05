@@ -32,8 +32,9 @@ for line in data:
     movie_title = line.split('||')[1]
     actors = line.split('||')[2].split('\t\t')
     if movie_title not in movie_rating:
-        continue
-    rating = movie_rating[movie_title]
+        rating = 0
+    else:
+        rating = movie_rating[movie_title]
     movies[movie_title] = Movie(movie_title, actors, rating)
 del data
 
@@ -76,4 +77,10 @@ for movie_title in movie_rating:
 print(len(p_score))
 print("The RMSE score for this bipartite graph is {} ".format(mean_squared_error(p_score, g_score)))
 
-    
+target = ['Batman v Superman: Dawn of Justice (2016)',
+                 'Mission: Impossible - Rogue Nation (2015)',
+                 'Minions (2015)']
+for t in target:
+    m_actors = movies[t].actors
+    a_score = [actors[int(a_id)] for a_id in m_actors]
+    print("The predicted score for {} is {} ".format(t, sum(a_score)/len(a_score)))

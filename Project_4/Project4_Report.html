@@ -1,0 +1,194 @@
+<h1 id="ece232espring2018project4">ECE 232E Spring 2018 - Project 4</h1>
+<h3 id="linzuoli604944917">Linzuo Li (604944917)</h3>
+<h3 id="haoranwang505029637">Haoran Wang (505029637)</h3>
+<h3 id="liangqiu704725636">Liang Qiu (704725636)</h3>
+<h3 id="yanhuang404759425">Yan Huang (404759425)</h3>
+<h1 id="1actoractressnetwork">1. Actor/Actress network</h1>
+<h3 id="question1">Question 1</h3>
+<p>The total number of actors and actress is 113074. The total number of unique movies is 202483. </p>
+<h2 id="11directedactoractressnetworkcreation">1.1 Directed actor/actress network creation</h2>
+<h3 id="question2">Question 2</h3>
+<p><img src="./plots/Q2.png" alt="degree distribution of actor" />
+The in-degree distribution of the weighted actor/actress network. </p>
+<p>From the plot, we can clearly see the most people did not have any inward degree in that network. Even the highest peak has only around 0.0038. For the people have inward degree, most of them lay between 0 to around 1000. </p>
+<h2 id="12actorpairings">1.2 Actor pairings</h2>
+<h3 id="question3">Question 3</h3>
+<p>Below we report the actor pairs and the weight for each pair. The actor pairs make sense.</p>
+<ul>
+<li>Tom Cruise - Nicole Kidman: 0.174603</li>
+<li>Emma Watson (II) - Daniel Radcliffe: 0.52</li>
+<li>George Clooney - Matt Damon: 0.119403</li>
+<li>Tom Hanks - Tim Allen (I): 0.101266</li>
+<li>Dwayne Johnson (I) - Steve Austin (IV): 0.205128</li>
+<li>Johnny Depp - Helena Bonham Carter: 0.081633</li>
+<li>Will Smith (I) - Darrell Foster: 0.102041</li>
+<li>Meryl Streep - Robert De Niro: 0.061856</li>
+<li>Leonardo DiCaprio - Martin Scorsese: 0.102041</li>
+<li>Brad Pitt - George Clooney: 0.098592</li>
+</ul>
+<h2 id="13actorrankings">1.3 Actor rankings</h2>
+<h3 id="question4">Question 4</h3>
+<p>Below we report the top 10 actors/actresses.</p>
+<h5 id="namenumberofmoviesindegree">Name: number of movies, in-degree</h5>
+<p>Bess Flowers: 21023, 14922<br />
+Sam Harris (II): 15467, 13702<br />
+Harold Miller (I): 14563, 12922<br />
+Fred Tatasciore: 10860, 7596<br />
+Ron Jeremy: 16630, 5648<br />
+Steve Blum (IX): 12472, 6418<br />
+Jeffrey Sayre: 11108, 11982<br />
+Kenner G. Kemp: 10815, 12104<br />
+Franklyn Farnum: 14391, 11938<br />
+Yuri Lowenthal: 9899, 5200  </p>
+<p>No, none of them is listed in the previous section. Because most of them are senior actors/actresses and they acted in so many influential movies. People in our decade may not be familiar with them.</p>
+<h3 id="question5">Question 5</h3>
+<p>Below we report the actors/actresses in the Question 3.</p>
+<h5 id="namepagerankscorenumberofmoviesindegree">Name: pagerank score, number of movies, in-degree</h5>
+<p>Tom Cruise: 1.618891e-05, 1712, 1974<br />
+Emma Watson (II): 1.692606e-05, 943, 866<br />
+George Clooney: 2.754246e-05, 1887, 3060<br />
+Tom Hanks: 3.426885e-05, 2101, 4014<br />
+Eddie Johnson (I): 1.120852e-05, 309, 1070<br />
+Johnny Depp: 3.393277e-05, 3132, 4152<br />
+Will Smith (I): 2.457424e-05, 1249, 2460<br />
+Meryl Streep: 2.483367e-05, 2826, 3082<br />
+Leonardo DiCaprio: 2.469046e-05, 1345, 2532<br />
+Brad Pitt: 2.953705e-05, 1786, 3406  </p>
+<h1 id="2movienetwork">2. Movie network</h1>
+<h2 id="21undirectedmovienetworkcreation">2.1 Undirected movie network creation</h2>
+<h3 id="question6">Question 6</h3>
+<h2 id="22communitiesinthemovienetwork">2.2 Communities in the movie network</h2>
+<h3 id="question6-1">Question 6</h3>
+<h3 id="question7">Question 7</h3>
+<p>1.
+    <img src="./plots/Q7_1.png" alt="c1" />
+    The most dominant genre in this community is Drama</p>
+<p>2.
+    <img src="./plots/Q7_2.png" alt="c1" />
+    The most dominant genre in this community is Short
+3.
+    <img src="./plots/Q7_3.png" alt="c1" />
+    The most dominant genre in this community is Documentary
+4.
+    <img src="./plots/Q7_4.png" alt="c1" />
+    The most dominant genre in this community is Drama and Documentary
+5.
+    <img src="./plots/Q7_5.png" alt="c1" />
+    The most dominant genre in this community is Adult
+6.
+    <img src="./plots/Q7_6.png" alt="c1" />
+    The most dominant genre in this community is Documentary
+7.
+    <img src="./plots/Q7_7.png" alt="c1" />
+    The most dominant genre in this community is Short
+8.
+    <img src="./plots/Q7_8.png" alt="c1" />
+    The most dominant genre in this community is Musical
+9.
+    <img src="./plots/Q7_9.png" alt="c1" />
+    The most dominant genre in this community is Short
+10.
+    <img src="./plots/Q7_10.png" alt="c1" />
+    The most dominant genre in this community is Short</p>
+<h3 id="question8">Question 8</h3>
+<h4 id="a">(a)</h4>
+<ol>
+<li><strong>Drama</strong></li>
+<li><strong>Short</strong></li>
+<li><strong>Documentary</strong></li>
+<li><strong>Drama and Documentary</strong></li>
+<li><strong>Adult</strong></li>
+<li><strong>Documentary</strong></li>
+<li><strong>Short</strong></li>
+<li><strong>Musical</strong></li>
+<li><strong>Short</strong></li>
+<li><strong>Short</strong></li>
+</ol>
+<p>The most dominant genre out of these 10 communities is Drama.</p>
+<h4 id="b">(b)</h4>
+<ol>
+<li><strong>Family</strong>, score: 43.70</li>
+<li><strong>Short</strong>, score: 9.53</li>
+<li><strong>Romance</strong>, score: 58.36</li>
+<li><strong>History</strong>, score: 28.22</li>
+<li><strong>Adult</strong>, score: 69.64</li>
+<li><strong>Adventure</strong>, score: 75.70</li>
+<li><strong>Romance</strong>, score: 2.49</li>
+<li><strong>Musical</strong>, score: 248.8</li>
+<li><strong>Short</strong>, score: 5.59</li>
+<li><strong>Short</strong>, score: 9.54</li>
+</ol>
+<p>The most dominant genre calculated using the scoring function are different from the most frequenty genre by coount. The reason is that, the normalization used in the scoring function removes the bias. For exmple, Drama is usually a very dominant genre. So many movies in the community have the same Drama genre. Therefore, it is not intuitive to compare the count directly. So the scoring function is a better indication of the dominant genre since the frequency is normalized. </p>
+<h4 id="c">(c)</h4>
+<p><img src="./plots/Q7_11.png" alt="c1" />
+    In terms of frequency, the above four genre share the same count. According to the scoring function, the most dominant genre in this community is Short and the score is 8.48</p>
+<p><img src="./plots/Q8c.png" alt="c1" /></p>
+<p>The three most influential actors are as follows:</p>
+<ul>
+<li>Desjardins, Nick</li>
+<li>Lafond-Martel, Olivier</li>
+<li>Legros, Simon (I)</li>
+</ul>
+<p>They are decided by counting out degrees. These actors acted in all 13 of the movies from the community. They help formed the entire community by acting in all these movies from the community. Also, they acted in movies mainly in the genre of this community from the entire movie dataset.</p>
+<h2 id="23neighborhoodanalysisofmovies">2.3 Neighborhood analysis of movies</h2>
+<h3 id="question9">Question 9</h3>
+<ul>
+<li><p>Batman v Superman: Dawn of Justice (2016); Rating: 6.6 
+<img src="./plots/Q9_1.png" alt="c1" />
+Average rating of its neighbors: 6.375129533678757. They are similar.</p></li>
+<li><p>Mission: Impossible - Rogue Nation (2015); Rating: 7.4 
+<img src="./plots/Q9_2.png" alt="c1" />
+Average rating of its neighbors: 6.23, which is not similar to 7.4.  </p></li>
+<li><p>Minions (2015); Rating: 6.4
+<img src="./plots/Q9_3.png" alt="c1" />
+Average rating of its neighbors: 6.815773353751914, which is similar.</p></li>
+</ul>
+<h3 id="question10">Question 10</h3>
+<p>Restrict the neighborhood to consist of movies from the same community.</p>
+<ul>
+<li><p>Batman v Superman: Dawn of Justice (2016); Rating: 6.6 
+<img src="./plots/Q10_1.png" alt="c1" />
+Average rating of its neighbors: 6.340969162995596. </p></li>
+<li><p>Mission: Impossible - Rogue Nation (2015); Rating: 7.4 
+<img src="./plots/Q10_2.png" alt="c1" />
+Average rating of its neighbors: 6.20275.  </p></li>
+<li><p>Minions (2015); Rating: 6.4
+<img src="./plots/Q10_3.png" alt="c1" />
+Average rating of its neighbors: 7.210610079575596.</p></li>
+</ul>
+<p>Unfortuantely, there is not a better match than Question 9.</p>
+<h3 id="question11">Question 11</h3>
+<p>Name: community ID</p>
+<ul>
+<li><p>Batman v Superman: Dawn of Justice (2016): 1
+Star Wars: The Old Republic (2011): 7
+Broadway: Beyond the Golden Age (2016): 1
+Lennon or McCartney (2014): 1
+Going to Pieces: The Rise and Fall of the Slasher Film (2006): 1
+Iron Man 3 (2013): 1</p></li>
+<li><p>Mission: Impossible III (2006): 1
+Star Wars: The Old Republic (2011): 7
+Grand Theft Auto V (2013): 7
+Lennon or McCartney (2014): 1
+Spider-Man 3 (2007): 7
+Pirates of the Caribbean: At World's End (2007): 7</p></li>
+<li><p>Minions (2015): 7
+Transformers: Dark of the Moon (2011): 7
+Star Wars: The Old Republic (2011): 7
+Celebrity (1998): 1
+Fainaru FantajÃ® XIII (2009): 7
+Kingudamu hÃ¢tsu: BÃ¢su bai surÃ®pu (2010): 7</p></li>
+</ul>
+<h2 id="24predictingratingsofmovies">2.4 Predicting ratings of movies</h2>
+<h3 id="question12">Question 12</h3>
+<p>We use three features in the model: the genre score as described in question 8, the actor score, which is the mean rating of the movies in which the actor participated in the community, and the director score, which is the mean rating of the movies that the director directed in the community. The root mean square error of our model is 0.82. According to our model, Batman v Superman: Dawn of Justice (2016) got 6.35; Mission: Impossible - Rogue Nation (2015) got 6.44 and Minions (2015) got 7.80.</p>
+<h3 id="question13">Question 13</h3>
+<p>We constructed a bipartite graph using actors/actress and movies. Then, a weight is assigend to each actor/actress based on the average ratings of the movie they acted. We beliveve the justification is that actors/actress are usually judged by the ratings of the movies they played in. As a result, we assgiend a weight to each actor based on the outgoing edges.</p>
+<p>And after that, we have a weight for each actor/actress. Then, we reversly assign ratings to a movie based on the actors/actress it has. We believe that movie ratings are usually strongly affected by the actors/actress. And finally, this is used as our prediction method.</p>
+<p>The <strong>RMSE</strong> for this bipartite graph approach is <strong>2.23</strong></p>
+<ul>
+<li>The predicted score for Batman v Superman: Dawn of Justice (2016) is <strong>4.17</strong></li>
+<li>The predicted score for Mission: Impossible - Rogue Nation (2015) is <strong>4.43</strong></li>
+<li>The predicted score for Minions (2015) is <strong>6.12</strong></li>
+</ul>
+<p>The result of this prediction method is worse than the result of linear regression which has a RMSE of <strong>0.82</strong>. We think one of the biggest reason is that we assgined equal weights for the movies that an actor/actress played in and vice versa. And this is a bad assumption since the contributions from actor/actress to a movie various.</p>
