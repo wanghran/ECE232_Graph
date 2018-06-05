@@ -54,6 +54,7 @@ for line in data:
 with open('../output/community.txt', 'r') as f:
     comms = f.readlines()
 
+np.random.seed(seed=10)
 selected_comms = np.random.choice(comms, 10)
 
 for m in comms:
