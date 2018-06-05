@@ -160,9 +160,58 @@ The most dominant genre calculated using the scoring function are different from
 
 ### Question 9
 
+* Batman v Superman: Dawn of Justice (2016); Rating: 6.6 
+![c1](./plots/Q9_1.png)
+Average rating of its neighbors: 6.375129533678757. They are similar.
+
+* Mission: Impossible - Rogue Nation (2015); Rating: 7.4 
+![c1](./plots/Q9_2.png)
+Average rating of its neighbors: 6.23, which is not similar to 7.4.  
+
+* Minions (2015); Rating: 6.4
+![c1](./plots/Q9_3.png)
+Average rating of its neighbors: 6.815773353751914, which is similar.
+
 ### Question 10
 
+Restrict the neighborhood to consist of movies from the same community.
+
+* Batman v Superman: Dawn of Justice (2016); Rating: 6.6 
+![c1](./plots/Q10_1.png)
+Average rating of its neighbors: 6.340969162995596. 
+
+* Mission: Impossible - Rogue Nation (2015); Rating: 7.4 
+![c1](./plots/Q10_2.png)
+Average rating of its neighbors: 6.20275.  
+
+* Minions (2015); Rating: 6.4
+![c1](./plots/Q10_3.png)
+Average rating of its neighbors: 7.210610079575596.
+
+Unfortuantely, there is not a better match than Question 9.
+
 ### Question 11
+Name: community ID
+* Batman v Superman: Dawn of Justice (2016): 1
+Star Wars: The Old Republic (2011): 7
+Broadway: Beyond the Golden Age (2016): 1
+Lennon or McCartney (2014): 1
+Going to Pieces: The Rise and Fall of the Slasher Film (2006): 1
+Iron Man 3 (2013): 1
+
+* Mission: Impossible III (2006): 1
+Star Wars: The Old Republic (2011): 7
+Grand Theft Auto V (2013): 7
+Lennon or McCartney (2014): 1
+Spider-Man 3 (2007): 7
+Pirates of the Caribbean: At World's End (2007): 7
+
+* Minions (2015): 7
+Transformers: Dark of the Moon (2011): 7
+Star Wars: The Old Republic (2011): 7
+Celebrity (1998): 1
+Fainaru FantajÃ® XIII (2009): 7
+Kingudamu hÃ¢tsu: BÃ¢su bai surÃ®pu (2010): 7
 
 ## 2.4 Predicting ratings of movies
 

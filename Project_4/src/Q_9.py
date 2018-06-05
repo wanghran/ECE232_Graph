@@ -37,5 +37,7 @@ with open('../output/movie_edge_list.txt', 'r') as f:
                     rates_neigh.append(rates[neigh])
         # the histogram of the data
         n, bins, patches = plt.hist(rates_neigh)
+        plt.xlabel('Rating')
+        plt.ylabel('Frequency')
         plt.show()
         print('Average rating of neighbors:', np.average(rates_neigh))
