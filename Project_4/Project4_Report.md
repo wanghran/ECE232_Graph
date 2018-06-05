@@ -41,13 +41,20 @@
 
 ### Question 7
 
+1.
+    ![c1](./plots/Q7_1.png)
+    The most dominant genre in this community is Drama
+
+
 ### Question 8
 
 #### (a)
 
 #### (b)
 
-#### (b)
+#### (c)
+
+1. Action, score: 95.36
 
 
 ## 2.3 Neighborhood analysis of movies
