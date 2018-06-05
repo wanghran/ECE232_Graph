@@ -15,7 +15,7 @@ class Movie:
         self.genre_score = None
         self.actor_score = None
         self.director_score = None
-        self.rating = 0.0
+        self.rating = rating
 
 
 with open('../output/movie_dict.txt', 'r') as f:
@@ -39,12 +39,10 @@ del data
 with open('../output/community.txt', 'r') as f:
     comms = f.readlines()
 
-comm = {}  # movie name : nodes in that community
+comm = []  # [[com1], [com2], [com3], ...], all movie ids
 for line in comms:
     com_list = [int(i) for i in line.split(' ')]
-    for movie in target:
-        if target[movie] in com_list:
-            comm[movie] = com_list
+    comm.append(com_list)
 del comms
 
 with open('../data/movie_genre.txt', 'r', encoding='ISO-8859-1') as f:
@@ -53,7 +51,7 @@ genre_dict = {}  # movie name : genre
 genre_count = {}  # genre : number
 for line in movie_genre:
     title = line.split('\t\t')[0]
-    genre = line.split('\t\t')[1]
+    genre = line.split('\t\t')[1].replace('\n', '')
     genre_dict[title] = genre
     if genre in genre_count:
         genre_count[genre] += 1
@@ -75,15 +73,20 @@ movie_rating = {}
 with open('../data/movie_rating.txt', 'r', encoding='ISO-8859-1') as f:
     movie_ratings = f.readlines()
 for line in movie_ratings:
-    movie_rating[line.split('\t\t')[0]] = line.split('\t\t')[1]
+    movie_rating[line.split('\t\t')[0]] = float(line.split('\t\t')[1].replace('\n', ''))
 del movie_ratings
 
-comm_movie = {}  # movie name : Movie inside that community except the target
+comm_movie = []  # [[com1], [com2], ..] movie object
 
-for movie in comm:
-    id = target[movie]
-    for node in comm[movie]:
-        if node != id:
+i = 0
+target_com = {}  # name : com_id
+for com_list in comm:
+    ids = []
+    movie_list = []
+    for movie in target:
+        ids.append(target[movie])
+    for node in com_list:
+        if node not in ids:
             movie_id = node
             name = movie_name[node]
             actor = movie_actor[node]
@@ -95,14 +98,15 @@ for movie in comm:
                 movie_name[node] in movie_rating) else None
             if rating is None:
                 pass
-            if movie in list(comm_movie):
-                comm_movie[movie].append(
-                    Movie(movie_id, name, actor, genre,
-                          director, rating)
-                )
             else:
-                comm_movie[movie] = [Movie(movie_id, name, actor, genre,
-                                     director, rating)]
+                movie_list.append(Movie(movie_id, name, actor, genre, director, rating))
+        else:
+            target_com[node] = i
+    if len(movie_list) == 0:
+        pass
+    else:
+        comm_movie.append(movie_list)
+    i += 1
 
 for movie in list(target):  # target becomes movie name : Movie
     movie_id = target[movie]
@@ -118,14 +122,14 @@ for movie in list(target):  # target becomes movie name : Movie
                           director, rating)
 del movie_name, movie_actor, movie_director, comm
 
-for movie in comm_movie:
+i = 0
+for community in comm_movie:
     comm_genres = []
-    community = comm_movie[movie]
     comm_genre_count = {}
     total = 0
     score = {}
     ratings = 0
-    for movie_obj in community:
+    for movie_obj in community: 
         genre = movie_obj.genre
         if genre is not None:
             comm_genres.append(genre)
@@ -134,24 +138,28 @@ for movie in comm_movie:
             comm_genre_count[genre] += 1
         else:
             comm_genre_count[genre] = 1
-        ratings += movie_obj.rating
+        ratings += movie_obj.rating if movie_obj.rating is not None else 0
     for genre in comm_genres:
         c_i = comm_genre_count[genre]
         p_i = c_i / total
         q_i = genre_count[genre] / len(genre_dict)
         score[genre] = np.log(c_i) * p_i / q_i
 
+
     total_score = 0
     for genre in score:
         total_score += score[genre]
     mean = total_score / len(score)
 
+
     for movie_obj in community:
         movie_obj.genre_score = score[movie_obj.genre] if movie_obj.genre\
-            is not None else mean
+            is not None or movie_obj.genre in score else mean
 
-    target[movie].genre_score = score[target[movie].genre] if\
-        target[movie].genre is not None else mean
+    for movie in target:
+        if target_com[target[movie].id] == i:
+            target[movie].genre_score = score[target[movie].genre] if\
+                target[movie].genre is not None else mean
 
     director_rating = {}
     actor_rating = {}
@@ -161,14 +169,26 @@ for movie in comm_movie:
         if movie_obj.actors is None:
             pass
         if movie_obj.director in director_rating:
-            director_rating[movie_obj.director].append(movie_obj.rating)
+            if movie_obj.rating is None:
+                pass
+            else:
+                director_rating[movie_obj.director].append(movie_obj.rating)
         else:
-            director_rating[movie_obj.director] = [movie_obj.rating]
+            if movie_obj.rating is None:
+                pass
+            else:
+                director_rating[movie_obj.director] = [movie_obj.rating]
         for actor in movie_obj.actors:
             if actor in actor_rating:
-                actor_rating[actor].append(movie_obj.rating)
+                if movie_obj.rating is None:
+                    pass
+                else:
+                    actor_rating[actor].append(movie_obj.rating)
             else:
-                actor_rating[actor] = [movie_obj.rating]
+                if movie_obj.rating is None:
+                    pass
+                else:
+                    actor_rating[actor] = [movie_obj.rating]
 
     director_count = 0.0
     director_mean = 0.0
@@ -176,10 +196,11 @@ for movie in comm_movie:
     for director, ratings in director_rating.items():
         director_count += len(ratings)
         total_rating += np.sum(ratings)
+    
     director_mean = total_rating / director_count
 
     for movie_obj in community:
-        if movie_obj.director is None:
+        if movie_obj.director is None or movie_obj.director not in director_rating:
             movie_obj.director_score = director_mean
         else:
             movie_obj.director_score = np.mean(
@@ -192,34 +213,40 @@ for movie in comm_movie:
                 actor_score.append(np.mean(actor_rating[actor]))
         movie_obj.actor_score = np.mean(actor_score)
 
-    if target[movie].director is None:
-        target[movie].director_score = director_mean
-    else:
-        target[movie].director_score = np.mean(
-            director_rating[target[movie].director]
-        )
     actor_score = []
-    for actor in target[movie].actors:
-        if actor not in actor_rating:
-            pass
-        else:
-            actor_score.append(np.mean(actor_rating[actor]))
-    target[movie].actor_score = np.mean(actor_score)
+    for movie in target:
+        if target_com[target[movie].id] == i:
+            if target[movie].director is None:
+                target[movie].director_score = director_mean
+            else:
+                target[movie].director_score = np.mean(
+                    director_rating[target[movie].director]
+                )
+            for actor in target[movie].actors:
+                if actor not in actor_rating:
+                    pass
+                else:
+                    actor_score.append(np.mean(actor_rating[actor]))
+            target[movie].actor_score = np.mean(actor_score)
+    i += 1
 
 del genre_count, genre_dict, movie_rating
 
 # alive: target, comm_movie
-# for movie in comm_movie:
-#     for movie_obj in comm_movie[movie]:
+# for community in comm_movie:
+#     for movie_obj in community:
 #         assert movie_obj.genre_score is not None
 #         assert movie_obj.director_score is not None
 #         assert movie_obj.actor_score is not None
 
 # for _, movie_obj in target.items():
-#     assert movie_obj.genre_score is not None
-#     assert movie_obj.actor_score is not None
-#     assert movie_obj.director_score is not None
+#     print(movie_obj.genre_score)
+#     # assert movie_obj.actor_score is not None
+#     print(movie_obj.actor_score)
+#     # assert movie_obj.director_score is not None
+#     print(movie_obj.director_score)
 
 # print(type(comm_movie['Batman v Superman: Dawn of Justice (2016)']))
-work(comm_movie['Batman v Superman: Dawn of Justice (2016)'],
-     target['Batman v Superman: Dawn of Justice (2016)'])
+# for movie in comm_movie['Batman v Superman: Dawn of Justice (2016)']:
+#     print(movie.id)
+work(comm_movie, target)
