@@ -12,11 +12,15 @@
 # 1. Actor/Actress network
 
 ### Question 1
+The total number of actors and actress is 113074. The total number of unique movies is 202483. 
 
 ## 1.1 Directed actor/actress network creation
 
 ### Question 2
+![degree distribution of actor](./plots/Q2.png)
+The in-degree distribution of the weighted actor/actress network. 
 
+From the plot, we can clearly see the most people did not have any inward degree in that network. Even the highest peak has only around 0.0038. For the people have inward degree, most of them lay between 0 to around 1000. 
 
 ## 1.2 Actor pairings
 
@@ -168,4 +172,5 @@ The most dominant genre calculated using the scoring function are different from
 
 ### Question 12
 
+We use three features in the model: the genre score as described in question 8, the actor score, which is the mean rating of the movies in which the actor participated in the community, and the director score, which is the mean rating of the movies that the director directed in the community. The root mean square error of our model is 0.82. According to our model, Batman v Superman: Dawn of Justice (2016) got 6.35; Mission: Impossible - Rogue Nation (2015) got 6.44 and Minions (2015) got 7.80.
 ### Question 13
