@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 import os
 import re
+import matplotlib.pyplot as plt
 dir = '../data/data/'
 
 def to_time_series(csv_name):
@@ -28,7 +29,9 @@ def get_weight(csv_name_i, csv_name_j):
     p_ij = get_correlation(csv_name_i, csv_name_j)
     return np.sqrt(2*(1-p_ij))
 
+
 stock_files = os.listdir(dir)
+weights = []
 with open('../output/stock_edgelist.txt', 'w+') as f:
     for i in range(len(stock_files)):
         for j in range(i+1,len(stock_files)):
@@ -39,5 +42,12 @@ with open('../output/stock_edgelist.txt', 'w+') as f:
             w_ij = get_weight(csv_name_i,csv_name_j)
             ticker_i = re.sub(r'\.csv$', '', csv_name_i)
             ticker_j = re.sub(r'\.csv$', '', csv_name_j)
+            weights.append(w_ij)
             f.write("%s\t%s\t%f\n"%(ticker_i, ticker_j, w_ij))
         print(i)
+
+plt.hist(weights, bins='auto')  # arguments are passed to np.histogram
+plt.title("Weight Distribution of Correlation")
+plt.show()
+
+
