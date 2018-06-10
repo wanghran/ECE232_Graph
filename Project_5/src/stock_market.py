@@ -22,7 +22,7 @@ def get_correlation(csv_name_i, csv_name_j):
     r_i = to_r_i(csv_name_i)
     r_j = to_r_i(csv_name_j)
     numerator = np.mean(r_i*r_j) - np.mean(r_i)*np.mean(r_j)
-    denominator = np.sqrt((np.mean(np.square(r_i)) - np.square(np.mean(r_j)))*(np.mean(np.square(r_j)) - np.square(np.mean(r_i))))
+    denominator = np.sqrt((np.mean(np.square(r_i)) - np.square(np.mean(r_i)))*(np.mean(np.square(r_j)) - np.square(np.mean(r_j))))
     return numerator / denominator
 
 def get_weight(csv_name_i, csv_name_j):
