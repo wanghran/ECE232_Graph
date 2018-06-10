@@ -16,7 +16,7 @@ def to_r_i(csv_name):
     p_i_t_1 = p_i_t.shift(1)
     q_i_t = (p_i_t-p_i_t_1)/p_i_t_1
     r_i = np.log(1+q_i_t)
-    return r_i
+    return r_i.iloc[1:]
 
 def get_correlation(csv_name_i, csv_name_j):
     r_i = to_r_i(csv_name_i)
@@ -34,9 +34,11 @@ stock_files = os.listdir(dir)
 weights = []
 with open('../output/stock_edgelist.txt', 'w+') as f:
     for i in range(len(stock_files)):
-        for j in range(i+1,len(stock_files)):
+        for j in range(len(stock_files)):
             csv_name_i = stock_files[i]
             csv_name_j = stock_files[j]
+            if csv_name_i == csv_name_j:
+                continue
             if csv_name_i == '.DS_Store' or csv_name_j == '.DS_Store':
                 continue
             w_ij = get_weight(csv_name_i,csv_name_j)
