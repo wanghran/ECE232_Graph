@@ -17,9 +17,7 @@ requirements.txt
 Project_4/data/*.txt
 Project_4/output/*.txt
 test.py
-
 Project_4/src/Part1_problem1\.ipynb
-
 *.csv
-
 *.txt
+Project_5/data/san_francisco_censustracts.json
