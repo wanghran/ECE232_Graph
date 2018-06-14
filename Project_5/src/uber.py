@@ -23,7 +23,7 @@ def travelInDec(csv_name=CVS):
 
 
 def getLoc(json_name=GEO):
-    f = open(DIR + GEO, 'r')
+    f = open(DIR + json_name, 'r')
     geofile = json.load(f)
     f.close()
     loc_list = {}  # movement_id : location objs
@@ -40,7 +40,8 @@ def getLoc(json_name=GEO):
             loc_list[movement_id] = location(movement_id, name, coordinates)
     return loc_list
 
-def write_edge_list(history, loc_list):
+
+def write_edge_list(history):
     edge_list = {}   # node pair : travel time
     for row in history.itertuples():
         sourceid = row[1]
@@ -49,17 +50,22 @@ def write_edge_list(history, loc_list):
         pair1 = (sourceid, dstid)
         pair2 = (dstid, sourceid)
         if pair1 in edge_list:
-            temp = edge_list[pair1]
-            edge_list[pair1] = np.mean([temp, mean_travel_time])
+            edge_list[pair1].append(mean_travel_time)
+            # temp = edge_list[pair1]
+            # edge_list[pair1] = np.mean([temp, mean_travel_time])
         elif pair2 in edge_list:
-            temp = edge_list[pair2]
-            edge_list[pair2] = np.mean([temp, mean_travel_time])
+            edge_list[pair2].append(mean_travel_time)
+            # temp = edge_list[pair2]
+            # edge_list[pair2] = np.mean([temp, mean_travel_time])
         else:
-            edge_list[pair1] = mean_travel_time
+            edge_list[pair1] = [mean_travel_time]
+    for k, v in edge_list.items():
+        edge_list[k] = sum(v) / float(len(v))
     with open(OUT + 'edge_list.txt', 'w+') as f:
         for pair in edge_list:
             f.write('%d\t%d\t%.3f\n'%(pair[0], pair[1], edge_list[pair]))
     return edge_list
+
 
 def write_feat_list(loc_list, edge_list):
     with open(OUT + 'feat_list.txt', 'w+') as f:
@@ -89,12 +95,12 @@ def write_feat_list(loc_list, edge_list):
             f.write('%d|%s|%.2f,%.2f\n' % (
                 movement_id, name, loc[0], loc[1]))
 
+
 def main():
     history = travelInDec()
     loc_list = getLoc()
-    edge_list = write_edge_list(history, loc_list)
+    edge_list = write_edge_list(history)
     write_feat_list(loc_list, edge_list)
-    
     
 
 if __name__ == '__main__':
