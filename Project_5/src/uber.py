@@ -51,12 +51,8 @@ def write_edge_list(history):
         pair2 = (dstid, sourceid)
         if pair1 in edge_list:
             edge_list[pair1].append(mean_travel_time)
-            # temp = edge_list[pair1]
-            # edge_list[pair1] = np.mean([temp, mean_travel_time])
         elif pair2 in edge_list:
             edge_list[pair2].append(mean_travel_time)
-            # temp = edge_list[pair2]
-            # edge_list[pair2] = np.mean([temp, mean_travel_time])
         else:
             edge_list[pair1] = [mean_travel_time]
     for k, v in edge_list.items():
@@ -88,11 +84,13 @@ def write_feat_list(loc_list, edge_list):
             pass
         else:
             node_dict[movement_id_2] = [name_2, loc_2]
+
+    print(node_dict)
     with open(OUT + 'feat_list.txt', 'a') as f:
         for movement_id in node_dict:
             name = node_dict[movement_id][0]
             loc = node_dict[movement_id][1]
-            f.write('%d|%s|%.2f,%.2f\n' % (
+            f.write('%d|%s|%.4f,%.4f\n' % (
                 movement_id, name, loc[0], loc[1]))
 
 
