@@ -85,7 +85,6 @@ def write_feat_list(loc_list, edge_list):
         else:
             node_dict[movement_id_2] = [name_2, loc_2]
 
-    print(node_dict)
     with open(OUT + 'feat_list.txt', 'a') as f:
         for movement_id in node_dict:
             name = node_dict[movement_id][0]

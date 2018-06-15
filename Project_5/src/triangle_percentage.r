@@ -9,11 +9,7 @@ triangle_list <- triangles(new_G)
 node_sample <- seq(1, length(triangle_list), 3)
 node_list <- sample(node_sample, 1000)
 triangle_ineq <- function(e1, e2, e3) {
-    if (e1 + e2 > e3) {
-        return (1)
-    }else if (e2 + e3 > e1) {
-        return (1)
-    }else if (e1 + e3 > e2) {
+    if ((e1 + e2 > e3) && (e2 + e3 > e1) && (e1 + e3 > e2))  {
         return (1)
     }else {
         return (0)
@@ -33,5 +29,5 @@ for (i in node_list) {
     e3_len <- edge[e3]$weight
     count = count + triangle_ineq(e1_len, e2_len, e3_len)
 }
-percentage <- count / 1000
-writeLines(percentage,"../output/percentage.txt")
+percentage <- count / 1000.0
+writeLines(format(percentage, digits=2),"../output/percentage.txt")
