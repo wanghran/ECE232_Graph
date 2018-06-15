@@ -146,14 +146,14 @@ print(flow_value)
 print(len(list(nx.edge_disjoint_paths(sub_G, 2607, 1968, flow_func=shortest_augmenting_path))))
 
 labels = {2607: 'Stanford', 1968: 'UCSC'}
-if disp:
+if True:
     nx.draw(sub_G, pos=sub_pos, nodecolor='r', node_size=5, edge_color='b', edge_tickness=1)
-    nx.draw_networkx_labels(sub_G, pos=sub_pos, labels=labels)
-    nx.draw_networkx_nodes(sub_G, pos=sub_pos, nodelist=[2607, 1989], node_color='k', node_size=5, alpha=1)
+    nx.draw_networkx_labels(sub_G, pos=sub_pos, labels=labels, font_size=30)
+    nx.draw_networkx_nodes(sub_G, pos=sub_pos, nodelist=[2607, 1989], node_color='k', node_size=100, alpha=1)
     plt.show()
 
 # Q14
-Threshold = 1198
+Threshold = 1200
 reduced_G = nx.Graph()
 reduced_edges = []
 times = []
@@ -197,11 +197,11 @@ reduced_G.add_node('5_r')
 sub_pos['5_r'] = (-122.302, 37.825)
 
 nx.draw(reduced_G, pos=sub_pos, nodecolor='r', node_size=1, edge_color='b', edge_tickness=1)
-nx.draw_networkx_nodes(reduced_G, pos=sub_pos, nodelist=['1_l', '1_r'], node_color='k', node_size=5, alpha=1)
-nx.draw_networkx_nodes(reduced_G, pos=sub_pos, nodelist=['2_l', '2_r'], node_color='g', node_size=5, alpha=1)
-nx.draw_networkx_nodes(reduced_G, pos=sub_pos, nodelist=['3_l', '3_r'], node_color='c', node_size=5, alpha=1)
-nx.draw_networkx_nodes(reduced_G, pos=sub_pos, nodelist=['4_l', '4_r'], node_color='m', node_size=5, alpha=1)
-nx.draw_networkx_nodes(reduced_G, pos=sub_pos, nodelist=['5_l', '5_r'], node_color='y', node_size=5, alpha=1)
+nx.draw_networkx_nodes(reduced_G, pos=sub_pos, nodelist=['1_l', '1_r'], node_color='k', node_size=100, alpha=1)
+nx.draw_networkx_nodes(reduced_G, pos=sub_pos, nodelist=['2_l', '2_r'], node_color='g', node_size=100, alpha=1)
+nx.draw_networkx_nodes(reduced_G, pos=sub_pos, nodelist=['3_l', '3_r'], node_color='c', node_size=100, alpha=1)
+nx.draw_networkx_nodes(reduced_G, pos=sub_pos, nodelist=['4_l', '4_r'], node_color='m', node_size=100, alpha=1)
+nx.draw_networkx_nodes(reduced_G, pos=sub_pos, nodelist=['5_l', '5_r'], node_color='y', node_size=100, alpha=1)
 plt.show()
 
 # Q15

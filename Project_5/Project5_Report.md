@@ -108,13 +108,46 @@ The approximate TSP cost vs. the optimal cost is around 1.572.
 
 ### Question 11
 
+Here is the road mesh I obtained. I plotted using the real coordinates so it's similar to the real road map, where you can tell the bay area, etc.
+
+![trajectory](plots/Q11_1.png)
+
+And this is the $$G_\Delta$$ whose nodes are different locations and whose edges are produced by *Delaunay Triangulation*.
+
+![trajectory](plots/Q11_3.png)
+
 ## 3.2 Calculate Road Traffic Flows
+
 ### Question 12
+
+![trajectory](plots/Q12.png)
 
 ## 3.3 Calculate the Max Flow
 ### Question 13
 
+The maximum flow from Stanford to UCSC is about 29780 (cars/hour). And there are 5 edge-disjoint paths between the two spots. Here I mark the two spots with black color.
+
+![trajectory](plots/Q13.png)
+
+I can hardly tell how many edge-disjoint paths there are from the graph. But 5 is a reasonable number since  there are 6 edges departuring Stanford and 7 edges entering UCSC. Also, to calculate the maimum flow, I am not sure whether we should use capacity of 4 lanes (2 for each direction) or 2 lanes for one single direction for each edge. If we use the latter, then the maximum flow would be about 14890 (cars/hour). 
+
 ## 3.4 Defoliate Your Graph
+
 ### Question 14
+
+Here is the histogram of the travel time of edges. 
+
+![trajectory](plots/Q14_1.png)
+
+We set the threshold travel time as 1200s and remove edges with travel time beyond that. The resulting graph is as follow. 
+
+![trajectory](plots/Q14_2.png)
+
+Notice the given real bridges' end points are marked with different colors as blue. They are still preserved when using the threshold of 1200s. (There exists some negligible errors between given bridges' coordinates and the original nodes' coordinates.)
+
+![trajectory](plots/Q14_3.png)
+
 ### Question 15
+
+Repeat Question 13, get the same maximum flow as about 29780 cars/hour (14890 cars/hour if use single direction capacity). And there are still 5 edge-disjoint paths between the two spots. Since we were supposed to only remove the fake edges, this shouldn't have any influence.
 
