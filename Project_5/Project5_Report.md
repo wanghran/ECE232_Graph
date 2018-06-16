@@ -98,11 +98,11 @@ We randomly picked 1000 triangles and the percentage was about 92%.
 
 ### Question 9
 
-The approximate TSP cost vs. the optimal cost is around 1.572. 
+We started the algorithm at root node with movement_id 1938. The approximate TSP cost vs. the optimal cost is around 1.572. 
 
 ### Question 10
 
-**The trajectory graph**
+**The trajectory graph starting at node 1938**
 ![trajectory](plots/Q10.png)
 
 # 3. Analysing the Traffic Flow
