@@ -93,6 +93,9 @@ There are 1880 nodes in the cleaned graph G and 311802 edges.
 We randomly picked up some edges from the minimum spanning tree and check the street name of all the end nodes. Movement_id 828 and movement_id 1624 formed an edge. Their addresses are 4200 Amargosa Drive, Antioch and 2900 Roosevelt Lane, Antioch, respectively. ID 1484 and ID 1550 formed an edge. Their addresses are 29300 Lassen Street, Tennyson - Alquire, Hayward and 30800 San Clemente Street, Hayward. ID 2523 and ID 2149 formed an edge. Their addresses are 3300 Rocky Mountain Drive, Alum Rock, San Jose and 2200 Vista Verde Drive, East San Jose, San Jose. As we can see, those two nodes that connected with each other are all in the same area, which makes sense since people usually do not travel far via Uber. 
 
 ### Question 8
+
+We randomly picked 1000 triangles and the percentage was about 92%. 
+
 ### Question 9
 
 The approximate TSP cost vs. the optimal cost is around 1.572. 
